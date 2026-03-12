@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Launch QA"
+  short_description: "Review premium site launch readiness"
+  default_prompt: "Use $codex-launch-qa to review a premium Next.js portfolio site before handoff or launch."

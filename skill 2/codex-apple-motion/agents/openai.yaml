@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Apple Motion"
+  short_description: "Design restrained premium site motion"
+  default_prompt: "Use $codex-apple-motion to map premium website motion, scroll choreography, and 3D usage."

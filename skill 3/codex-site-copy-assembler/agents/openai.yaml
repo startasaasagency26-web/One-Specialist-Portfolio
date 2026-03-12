@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Site Copy Assembler"
+  short_description: "Assemble premium portfolio website copy"
+  default_prompt: "Use $codex-site-copy-assembler to turn sparse business details into a premium website copy deck."

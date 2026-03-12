@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Portfolio Architect"
+  short_description: "Plan premium portfolio site architecture"
+  default_prompt: "Use $codex-portfolio-architect to turn a company brief into a build-ready portfolio website plan."
