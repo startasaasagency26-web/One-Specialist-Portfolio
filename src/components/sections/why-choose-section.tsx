@@ -25,7 +25,7 @@ export function WhyChooseSection() {
             <Reveal
               key={item.title}
               delay={0.08 * (index + 1)}
-              className="rounded-[1.75rem] border border-black/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_0%,rgba(255,255,255,0.64)_100%)] p-6 shadow-[0_22px_65px_-34px_rgba(17,17,17,0.18)] backdrop-blur-2xl"
+              className="rounded-[1.75rem] border border-black/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(252,252,252,0.8)_100%)] p-6 shadow-[0_22px_65px_-34px_rgba(0,0,0,0.12)] backdrop-blur-2xl"
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(225,6,0,0.12)_0%,rgba(255,77,26,0.14)_48%,rgba(255,179,71,0.18)_100%)] text-[var(--brand-red-orange)] ring-1 ring-black/6">
                 <Icon size={20} />

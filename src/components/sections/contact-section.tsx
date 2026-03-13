@@ -14,7 +14,7 @@ const icons = [MapPinned, MessageCircleMore, Clock3];
 export function ContactSection() {
   return (
     <section id="contact" className="container-shell py-24 md:py-32">
-      <Reveal className="overflow-hidden rounded-[2.5rem] border border-black/8 bg-[linear-gradient(135deg,rgba(255,255,255,0.86)_0%,rgba(255,247,240,0.9)_34%,rgba(255,232,221,0.92)_100%)] p-8 shadow-[0_30px_90px_-40px_rgba(17,17,17,0.22)] backdrop-blur-2xl md:p-12">
+      <Reveal className="overflow-hidden rounded-[2.5rem] border border-black/8 bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(250,250,250,0.92)_100%)] p-8 shadow-[0_30px_90px_-40px_rgba(17,17,17,0.18)] backdrop-blur-2xl md:p-12">
         <div className="grid gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:items-end">
           <div>
             <span className="inline-flex rounded-full border border-black/8 bg-white/76 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-muted-strong shadow-[0_10px_30px_-20px_rgba(17,17,17,0.16)]">

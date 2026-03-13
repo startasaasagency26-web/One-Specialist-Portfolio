@@ -58,33 +58,50 @@ export function HeroVideoMedia({ className = "" }: HeroVideoMediaProps) {
   return (
     <div
       className={[
-        "pointer-events-none absolute overflow-hidden",
+        "absolute flex items-center justify-center overflow-hidden pointer-events-none",
         className,
       ].join(" ")}
     >
-      <div className="absolute inset-0 rounded-[3.6rem] bg-[radial-gradient(circle_at_62%_34%,rgba(255,255,255,0.28),transparent_24%),radial-gradient(circle_at_76%_56%,rgba(255,77,26,0.1),transparent_28%),radial-gradient(circle_at_46%_70%,rgba(255,179,71,0.1),transparent_30%)]" />
-      <div className="absolute inset-y-0 left-0 w-[58%] bg-[linear-gradient(90deg,#f7f7f5_0%,rgba(247,247,245,0.98)_18%,rgba(247,247,245,0.92)_34%,rgba(247,247,245,0.74)_46%,rgba(247,247,245,0.36)_60%,transparent_100%)]" />
-      <div className="absolute inset-y-0 right-0 w-[18%] bg-[linear-gradient(90deg,transparent_0%,rgba(247,247,245,0.18)_48%,#f7f7f5_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-[20%] bg-[linear-gradient(180deg,#f7f7f5_0%,rgba(247,247,245,0.62)_74%,transparent_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[22%] bg-[linear-gradient(180deg,transparent_0%,rgba(247,247,245,0.62)_58%,#f7f7f5_100%)]" />
-      <div className="absolute inset-0 rounded-[3.6rem] [mask-image:radial-gradient(88%_84%_at_68%_50%,black_48%,transparent_100%)] [-webkit-mask-image:radial-gradient(88%_84%_at_68%_50%,black_48%,transparent_100%)]">
-        <video
-          ref={videoRef}
-          className="h-full w-full translate-x-[8%] translate-y-[3%] scale-[1.18] object-contain opacity-[0.82] [filter:saturate(0.66)_contrast(0.88)_brightness(0.98)_blur(0.8px)] md:translate-x-[12%] md:scale-[1.22] lg:translate-x-[18%] lg:translate-y-[4%] lg:scale-[1.28]"
-          src="/media/one-mobile-store-hero.mp4"
-          autoPlay={!reduceMotion}
-          muted
-          loop={!reduceMotion}
-          playsInline
-          preload="metadata"
-          onCanPlay={() => setCanPlay(true)}
-          onLoadedData={() => setCanPlay(true)}
-          onError={() => setFailed(true)}
-        />
+      {/* Extremely Subtle Brand Glow - Expanded */}
+      <div className="absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,179,71,0.06),transparent_65%)]" />
+      
+      {/* Centered Atmospheric Masking - Wider and Clearer */}
+      <div className="absolute inset-0 [mask-image:radial-gradient(140%_100%_at_50%_50%,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(140%_100%_at_50%_50%,black_40%,transparent_85%)]">
+        <motion.div
+          animate={reduceMotion ? {} : {
+            y: [0, -12, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="h-full w-full"
+        >
+          <video
+            ref={videoRef}
+            className="h-full w-full translate-x-[2%] translate-y-[1%] scale-[1.3] object-contain opacity-[0.78] [filter:saturate(0.6)_contrast(0.98)_brightness(0.98)_blur(0.8px)] md:scale-[1.4] lg:translate-x-[5%] lg:scale-[1.62]"
+            src="/media/one-mobile-store-hero.mp4"
+            autoPlay={!reduceMotion}
+            muted
+            loop={!reduceMotion}
+            playsInline
+            preload="metadata"
+            onCanPlay={() => setCanPlay(true)}
+            onLoadedData={() => setCanPlay(true)}
+            onError={() => setFailed(true)}
+          />
+        </motion.div>
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(112deg,rgba(247,247,245,0.06)_0%,rgba(247,247,245,0.02)_34%,rgba(247,247,245,0.16)_58%,rgba(247,247,245,0.36)_100%)]" />
-      <div className="absolute right-[14%] top-[8%] h-[24%] w-[20%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.44),transparent_74%)] blur-3xl" />
-      <div className="absolute left-[44%] bottom-[12%] h-[14%] w-[28%] rounded-full bg-[radial-gradient(circle,rgba(225,6,0,0.1),rgba(255,179,71,0.06),transparent_72%)] blur-3xl" />
+      
+      {/* Cinematic Blending Overlays - Side-to-Side Focus */}
+      <div className="absolute inset-y-0 left-0 w-[30%] bg-[linear-gradient(90deg,#ffffff_0%,rgba(255,255,255,0.7)_50%,transparent_100%)] z-10" />
+      <div className="absolute inset-y-0 right-0 w-[20%] bg-[linear-gradient(270deg,#ffffff_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] z-10" />
+      <div className="absolute inset-x-0 top-0 h-[25%] bg-[linear-gradient(180deg,#ffffff_0%,transparent_100%)] z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-[25%] bg-[linear-gradient(0deg,#ffffff_0%,transparent_100%)] z-10" />
+      
+      {/* Luminous Core Glow */}
+      <div className="absolute left-[50%] top-[40%] -translate-x-1/2 -translate-y-1/2 h-[50%] w-[60%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.25),transparent_70%)] blur-[120px] z-10 pointer-events-none" />
 
       {(autoplayBlocked || failed || reduceMotion) && (
         <div className="pointer-events-auto absolute bottom-6 left-6 z-20 flex">

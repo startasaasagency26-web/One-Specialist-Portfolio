@@ -39,7 +39,7 @@ export function ServicesSection() {
                     ? undefined
                     : { y: -6, scale: 1.01, transition: { duration: 0.25 } }
                 }
-                className="group flex h-full flex-col rounded-[1.9rem] border border-black/8 bg-white/76 p-6 shadow-[0_20px_60px_-34px_rgba(17,17,17,0.18)] backdrop-blur-2xl"
+                className="group flex h-full flex-col rounded-[1.9rem] border border-black/8 bg-white/94 p-6 shadow-[0_20px_60px_-34px_rgba(0,0,0,0.12)] backdrop-blur-xl"
               >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(225,6,0,0.12)_0%,rgba(255,77,26,0.14)_48%,rgba(255,179,71,0.18)_100%)] text-[var(--brand-red-orange)] ring-1 ring-black/6">
