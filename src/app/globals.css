@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f7f5;
+  --surface: rgba(255, 255, 255, 0.76);
+  --surface-strong: rgba(255, 255, 255, 0.9);
+  --ink: #111111;
+  --muted: #6d645f;
+  --muted-strong: #3f3834;
+  --line: rgba(17, 17, 17, 0.08);
+  --brand-red: #e10600;
+  --brand-red-orange: #ff4d1a;
+  --brand-orange: #f58a1f;
+  --brand-amber: #ffb347;
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --color-canvas: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-line: var(--line);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-orange: var(--brand-red-orange);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-amber: var(--brand-amber);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(255, 77, 26, 0.18);
+  color: var(--ink);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container-shell {
+  width: min(100% - 1.5rem, 78rem);
+  margin-inline: auto;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .container-shell {
+    width: min(100% - 3rem, 82rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-shell {
+    width: min(100% - 5rem, 88rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
