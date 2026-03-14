@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote, ChevronRight, Pin } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 interface GoogleReview {
@@ -72,89 +72,106 @@ export function GoogleReviewsSection() {
 
   return (
     <div className="mt-32">
+      {/* SVG Definitions for Generic Gradient Use */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#E4221D" />
+            <stop offset="100%" stopColor="#F7762D" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="flex flex-col items-center mb-16">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex gap-0.5 text-brand-orange">
+        {/* Rating Badge */}
+        <div className="inline-flex items-center gap-2 mb-4 rounded-full bg-surface-strong px-5 py-2 ring-1 ring-white/10 shadow-lg">
+          <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} fill="currentColor" />
+              <Star key={i} size={14} fill="url(#star-gradient)" className="text-transparent" />
             ))}
           </div>
-          <span className="text-sm font-bold text-white uppercase tracking-widest">
+          <span className="text-xs font-bold bg-brand-gradient bg-opacity-100 bg-clip-text text-transparent uppercase tracking-wider">
             4.9 Rated on Google
           </span>
         </div>
-        <h3 className="font-display text-3xl font-extrabold text-white">
-          Our Five-Star <span className="text-gradient">Google Reviews</span>
+
+        <h3 className="font-display text-3xl md:text-4xl font-extrabold text-white text-center">
+          Our Five-Star Google Reviews
         </h3>
+        
+        <a 
+          href="#" 
+          className="mt-4 text-xs font-bold text-muted hover:text-brand-orange transition-colors flex items-center gap-1 group border-b border-white/10 hover:border-brand-orange/40 pb-0.5"
+        >
+          See all reviews on Google Maps
+          <ChevronRight size={14} className="text-brand-orange transition-transform group-hover:translate-x-0.5" />
+        </a>
       </div>
 
-      {/* Responsive Slider / Scroll Area */}
-      <div className="relative group">
-        <div 
-          className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar @container"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {PLACEHOLDER_REVIEWS.map((review, i) => (
-            <motion.div
-              key={review.id}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={cardVariants}
-              className="flex-shrink-0 w-full md:w-[400px] snap-center"
-            >
-              <div className="h-full rounded-[2.5rem] bg-background p-8 border border-white/5 transition-all hover:bg-white/[0.02] hover:border-brand-orange/20 relative group/card">
-                <Quote className="absolute top-8 right-8 h-8 w-8 text-brand-orange/5 transition-colors group-hover/card:text-brand-orange/10" />
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {PLACEHOLDER_REVIEWS.map((review, i) => (
+          <motion.div
+            key={review.id}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={cardVariants}
+            whileHover={shouldReduceMotion ? {} : { y: -5 }}
+            className="w-full flex"
+          >
+            <div className="group h-full p-[1px] rounded-[2.5rem] bg-white/5 bg-gradient-to-br from-white/10 to-transparent hover:from-brand-red hover:to-brand-orange transition-all duration-500 shadow-xl flex-grow">
+              <div className="h-full rounded-[2.45rem] bg-background p-8 relative flex flex-col justify-between">
+                <Quote className="absolute top-8 right-8 h-8 w-8 text-brand-orange/5 transition-colors group-hover:text-brand-orange/10" />
                 
-                <div className="flex items-center gap-4 mb-6">
-                  {/* Avatar Placeholder */}
-                  <div className="h-12 w-12 rounded-full bg-surface-strong border border-white/10 flex items-center justify-center text-brand-orange font-bold overflow-hidden ring-2 ring-transparent transition-all group-hover/card:ring-brand-orange/20">
-                    {review.photo ? (
-                      <img src={review.photo} alt={`Photo of ${review.name}`} className="h-full w-full object-cover" />
-                    ) : (
-                      <span className="text-lg">{review.name.charAt(0)}</span>
-                    )}
+                <div>
+                  <div className="flex items-center gap-4 mb-5">
+                    {/* Avatar */}
+                    <div className="h-12 w-12 rounded-full bg-surface-strong border border-white/10 flex items-center justify-center text-brand-orange font-bold overflow-hidden ring-2 ring-transparent transition-all group-hover:ring-brand-orange/20 flex-shrink-0">
+                      {review.photo ? (
+                        <img src={review.photo} alt={`Photo of ${review.name}`} className="h-full w-full object-cover" />
+                      ) : (
+                        <span className="text-lg">{review.name.charAt(0)}</span>
+                      )}
+                    </div>
+                    <div>
+                      <div className="flex flex-col">
+                        <h4 className="font-bold text-white text-base leading-tight">
+                          {review.name}
+                        </h4>
+                        <span className="text-[7px] font-black uppercase tracking-wider text-muted/60 mt-0.5">
+                          Verified Google Review
+                        </span>
+                      </div>
+                      <div className="flex gap-0.5 mt-1.5">
+                        {[...Array(5)].map((_, starIdx) => (
+                          <Star key={starIdx} size={11} fill="url(#star-gradient)" className="text-transparent" />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-white text-base">
-                      {review.name}
-                    </h4>
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-orange/70">
-                      Verified Google Review
-                    </p>
-                  </div>
+
+                  <p className="text-muted leading-relaxed italic text-sm md:text-base line-clamp-4">
+                    "{review.comment}"
+                  </p>
                 </div>
 
-                <div className="flex gap-0.5 text-brand-orange mb-4">
-                  {[...Array(review.rating)].map((_, starIdx) => (
-                    <Star key={starIdx} size={12} fill="currentColor" />
-                  ))}
-                </div>
-
-                <p className="text-muted leading-relaxed italic text-sm md:text-base">
-                  "{review.comment}"
-                </p>
-
-                <div className="mt-6 pt-6 border-t border-white/5 flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-muted-strong uppercase tracking-widest">
-                    Google Maps
-                  </span>
-                  <span className="text-[10px] font-medium text-muted-strong">
+                <div className="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                  <div className="flex items-center gap-1.5">
+                    <Pin size={11} className="text-brand-orange" fill="url(#star-gradient)" />
+                    <span className="text-[9px] font-bold text-muted-strong uppercase tracking-widest">
+                      Google Maps
+                    </span>
+                  </div>
+                  <span className="text-[9px] font-medium text-muted-strong">
                     {review.date}
                   </span>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Navigation Indicators / Hints */}
-        <div className="flex justify-center gap-2 mt-8 md:hidden">
-          {PLACEHOLDER_REVIEWS.map((_, i) => (
-            <div key={i} className="h-1 w-4 rounded-full bg-white/10 transition-colors" />
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

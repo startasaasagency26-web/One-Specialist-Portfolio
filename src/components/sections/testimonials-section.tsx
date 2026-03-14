@@ -9,11 +9,6 @@ const BEFORE_AFTER = [
   { id: 2, title: "Samsung Board Repair", before: "Zero power/no boot.", after: "Fully restored.", category: "Board" },
 ];
 
-const TESTIMONIALS = [
-  { name: "John D.", rating: 5, text: "Fixed my iPhone screen in 30 minutes! Exceptional service at Sunway Pyramid." },
-  { name: "Sarah L.", rating: 5, text: "The only place I trust for board-level repairs. They saved my data when others couldn't." },
-  { name: "Michael R.", rating: 5, text: "Amazing trade-in value. Professional, transparent, and fast." },
-];
 
 export function TestimonialsSection() {
   return (
@@ -57,30 +52,6 @@ export function TestimonialsSection() {
             </Reveal>
           ))}
         </div>
-
-        {/* Testimonials Grid */}
-        <div className="mt-24 grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t, idx) => (
-            <Reveal key={t.name} delay={0.1 * idx}>
-              <div className="relative rounded-[2rem] bg-background p-10 ring-1 ring-white/5">
-                <Quote className="absolute top-8 right-8 h-8 w-8 text-brand-orange/5" />
-                <div className="flex gap-1 text-brand-orange">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="mt-8 text-lg leading-relaxed text-white/90 italic">
-                  "{t.text}"
-                </p>
-                <div className="mt-10 border-t border-white/5 pt-8">
-                  <p className="font-display font-bold text-white">{t.name}</p>
-                  <p className="mt-1 text-[10px] font-black uppercase tracking-[0.2em] text-muted">Verified Customer</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
         <GoogleReviewsSection />
       </div>
     </section>
