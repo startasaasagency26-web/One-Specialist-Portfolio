@@ -6,7 +6,7 @@ import { contactDetails } from "@/content/site";
 
 export function StickyBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 p-4 pb-8 md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] md:hidden">
       <motion.div
         initial={{ y: 100 }}
         animate={{ y: 0 }}

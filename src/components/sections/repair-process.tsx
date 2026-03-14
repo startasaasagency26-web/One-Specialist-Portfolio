@@ -40,11 +40,11 @@ export function RepairProcessSection() {
   };
 
   return (
-    <section id="repair-process" className="bg-background py-24 md:py-32 overflow-hidden">
+    <section id="repair-process" className="bg-background py-16 md:py-32 overflow-hidden">
       <div className="container-shell">
         <Reveal>
-          <div className="text-center mb-24">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+          <div className="text-center mb-20">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-white md:text-5xl">
               Our <span className="text-gradient">Repair Process</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
@@ -60,7 +60,7 @@ export function RepairProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-10 md:grid-cols-3 lg:grid-cols-5"
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-10 md:overflow-x-visible md:pb-0 px-4 md:px-0"
         >
           {repairSteps.map((step, index) => {
             const Icon = icons[index % icons.length];
@@ -68,7 +68,7 @@ export function RepairProcessSection() {
               <motion.div 
                 key={step.title}
                 variants={itemVariants}
-                className="group flex flex-col items-center text-center p-6 rounded-[2rem] bg-surface ring-1 ring-white/5 transition-all hover:ring-brand-orange/30"
+                className="group flex flex-col items-center text-center p-6 rounded-[2rem] bg-surface ring-1 ring-white/5 transition-all hover:ring-brand-orange/30 min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-center"
               >
                 {/* Icon with Brand Gradient (Red -> Orange) */}
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-background ring-1 ring-white/10 text-brand-orange shadow-2xl transition-all group-hover:scale-110">
