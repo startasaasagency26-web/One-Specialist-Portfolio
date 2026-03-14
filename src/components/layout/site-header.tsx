@@ -6,7 +6,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -24,83 +24,83 @@ export function SiteHeader() {
   });
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-6 md:px-10">
       <motion.div
-        initial={{ opacity: 0, y: -18 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "container-shell flex items-center justify-between rounded-full border px-4 py-2 shadow-2xl transition-all duration-300 md:px-6",
+          "mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500",
           scrolled
-            ? "border-line bg-surface/80 backdrop-blur-xl"
+            ? "border-white/10 bg-surface/80 shadow-2xl backdrop-blur-2xl"
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-display text-lg font-black text-background">
+        <Link href="#top" className="flex items-center gap-4 px-2">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
             1
           </div>
-          <div className="hidden lg:block leading-none">
-            <div className="font-display text-base font-black tracking-tight text-ink">
+          <div className="hidden lg:block">
+            <div className="font-display text-sm font-black tracking-tight text-white">
               One Specialist
             </div>
-            <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent">
+            <div className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-orange">
               Premium Mobile
             </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-xs font-bold uppercase tracking-widest text-muted transition hover:text-accent"
+              className="text-[10px] font-black uppercase tracking-[0.2em] text-muted transition hover:text-white"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="flex items-center gap-3">
           <ButtonLink
             href="#contact"
-            className="rounded-full px-6 py-2 text-xs font-bold uppercase tracking-widest"
+            className="hidden px-5 py-2.5 text-[10px] md:inline-flex"
           >
             Get a Quote
           </ButtonLink>
-        </div>
 
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink transition hover:border-accent md:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+          <button
+            type="button"
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-brand-orange/40 md:hidden"
+          >
+            {open ? <X size={16} /> : <Menu size={16} />}
+          </button>
+        </div>
       </motion.div>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="container-shell mt-3 rounded-[2rem] border border-line bg-surface p-6 shadow-2xl backdrop-blur-2xl md:hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="mt-4 overflow-hidden rounded-[2.5rem] border border-white/10 bg-surface p-8 shadow-2xl backdrop-blur-2xl md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-bold uppercase tracking-widest text-muted hover:text-accent"
+                  className="text-xs font-black uppercase tracking-[0.2em] text-muted hover:text-white"
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="h-px w-full bg-line" />
+              <div className="h-px w-full bg-white/5" />
               <ButtonLink href="#contact" onClick={() => setOpen(false)} className="w-full">
                 Get a Quote
               </ButtonLink>

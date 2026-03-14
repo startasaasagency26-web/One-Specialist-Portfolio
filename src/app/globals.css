@@ -1,77 +1,101 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0A1220; /* Dark Navy */
-  --surface: #132238;    /* Midnight Blue */
-  --surface-strong: #1A2E4B;
-  --ink: #F5F7FB;       /* Near-white */
-  --muted: #94A3B8;     /* Muted body text */
-  --muted-strong: #64748B;
-  --line: rgba(255, 255, 255, 0.08);
-  --accent: #10B7D8;    /* Electric Cyan */
-  --accent-hover: #0EA5C2;
-}
-
 @theme inline {
-  --font-sans: var(--font-body);
-  --font-display: var(--font-display);
-  --font-mono: var(--font-mono);
-  --color-canvas: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-strong: var(--surface-strong);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-muted-strong: var(--muted-strong);
-  --color-line: var(--line);
+  
   --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
   --color-accent-hover: var(--accent-hover);
+  
+  --color-brand-red: var(--brand-red);
+  --color-brand-orange: var(--brand-orange);
+  
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-html {
-  scroll-behavior: smooth;
+:root {
+  /* Color Palette - Neutral Apple Aesthetic */
+  --background: #0A0A0A;
+  --canvas: #000000;
+  --surface: #111111;
+  --surface-strong: #1A1A1A;
+  
+  /* Brand Colors - Red to Orange Gradient */
+  --brand-red: #E4221D;
+  --brand-orange: #F7762D;
+  --accent: #E4221D;
+  --accent-secondary: #F7762D;
+  --accent-hover: #D11D18;
+  
+  /* Typography */
+  --ink: #FFFFFF;
+  --muted: #A3A3A3;
+  --muted-strong: #737373;
+  
+  /* Layout */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.12);
 }
 
-body {
-  min-height: 100vh;
-}
-
-::selection {
-  background: rgba(255, 77, 26, 0.18);
-  color: var(--ink);
-}
-
-a,
-button {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.container-shell {
-  width: min(100% - 1.5rem, 78rem);
-  margin-inline: auto;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.text-pretty {
-  text-wrap: pretty;
-}
-
-@media (min-width: 768px) {
-  .container-shell {
-    width: min(100% - 3rem, 82rem);
+@layer base {
+  * {
+    @apply border-line outline-none;
   }
-}
-
-@media (min-width: 1280px) {
-  .container-shell {
-    width: min(100% - 5rem, 88rem);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
+  
   html {
-    scroll-behavior: auto;
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-ink selection:bg-accent/30 selection:text-ink;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-ink;
+  }
+}
+
+@layer utilities {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-tri {
+    background: linear-gradient(90deg, var(--brand-red) 0%, var(--brand-orange) 50%, var(--brand-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 100%);
+  }
+
+  .bg-brand-gradient-tri {
+    background: linear-gradient(90deg, var(--brand-red) 0%, var(--brand-orange) 50%, var(--brand-red) 100%);
+  }
+  
+  .border-gradient {
+    border: 1px solid;
+    border-image-source: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 100%);
+    border-image-slice: 1;
   }
 }

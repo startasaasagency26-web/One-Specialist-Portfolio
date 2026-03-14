@@ -17,13 +17,27 @@ export function ButtonLink({
   variant = "primary",
   onClick,
 }: ButtonLinkProps) {
-  const baseClasses = "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold uppercase tracking-widest transition duration-300";
+  const baseClasses = "inline-flex items-center justify-center rounded-full px-7 py-3.5 text-xs font-bold uppercase tracking-widest transition duration-500";
   
   const variants = {
-    primary: "bg-accent text-background shadow-lg shadow-accent/20 hover:scale-[1.02] hover:bg-accent-hover",
-    secondary: "border border-line bg-surface/50 text-ink backdrop-blur-md hover:bg-surface hover:border-accent/40",
-    ghost: "text-muted hover:text-accent hover:bg-white/5",
+    primary: "bg-brand-gradient text-white shadow-lg shadow-brand-red/20 hover:scale-[1.02] hover:shadow-brand-red/30",
+    secondary: "group relative p-[1px] bg-brand-gradient hover:scale-[1.02]",
+    ghost: "text-muted hover:text-white hover:bg-white/5",
   };
+
+  if (variant === "secondary") {
+    return (
+      <Link
+        href={href}
+        onClick={onClick}
+        className={cn(variants.secondary, "rounded-full", className)}
+      >
+        <span className="flex h-full w-full items-center justify-center rounded-full bg-background px-7 py-3 transition-colors group-hover:bg-background/80">
+          {children}
+        </span>
+      </Link>
+    );
+  }
 
   return (
     <Link
