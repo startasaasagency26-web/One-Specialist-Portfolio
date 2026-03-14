@@ -54,14 +54,23 @@ export function ContactSection() {
                     <MessageSquare className="mr-3" size={20} />
                     WhatsApp Enquire
                   </ButtonLink>
-                  <ButtonLink 
-                    href="https://maps.google.com"
-                    variant="secondary"
-                    className="px-10 py-5"
+                  <a 
+                    href="https://maps.google.com" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="group flex h-[60px] items-center gap-4 rounded-full bg-surface-strong pr-6 pl-1.5 ring-1 ring-white/5 transition-all hover:bg-white/[0.03] hover:ring-white/10"
                   >
-                    <MapPin className="mr-3" size={20} />
-                    Directions
-                  </ButtonLink>
+                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-background ring-1 ring-white/10 shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:ring-brand-orange/50 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+                      <MapPin 
+                        size={20} 
+                        className="text-white transition-all duration-300 group-hover:text-brand-orange group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                      />
+                    </div>
+                    <span className="font-display text-sm font-bold tracking-wide text-white transition-colors group-hover:text-brand-orange">
+                      Directions
+                    </span>
+                  </a>
                 </div>
               </div>
 

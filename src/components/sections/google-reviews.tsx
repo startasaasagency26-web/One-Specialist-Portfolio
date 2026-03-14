@@ -84,13 +84,13 @@ export function GoogleReviewsSection() {
 
       <div className="flex flex-col items-center mb-16">
         {/* Rating Badge */}
-        <div className="inline-flex items-center gap-2 mb-4 rounded-full bg-surface-strong px-5 py-2 ring-1 ring-white/10 shadow-lg">
-          <div className="flex gap-0.5">
+        <div className="inline-flex items-center rounded-full bg-surface-strong p-1 ring-1 ring-white/10 shadow-lg mb-6">
+          <div className="flex items-center gap-1.5 rounded-full bg-background px-4 py-2 border border-white/5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} size={14} fill="url(#star-gradient)" className="text-transparent" />
             ))}
           </div>
-          <span className="text-xs font-bold bg-brand-gradient bg-opacity-100 bg-clip-text text-transparent uppercase tracking-wider">
+          <span className="px-4 text-[11px] sm:text-xs font-bold bg-brand-gradient bg-clip-text text-transparent uppercase tracking-wider">
             4.9 Rated on Google
           </span>
         </div>

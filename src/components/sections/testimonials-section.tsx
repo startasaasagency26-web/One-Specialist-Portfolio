@@ -5,8 +5,8 @@ import { Reveal } from "@/components/shared/reveal";
 import { GoogleReviewsSection } from "./google-reviews";
 
 const BEFORE_AFTER = [
-  { id: 1, title: "iPhone Screen Repair", before: "Cracked beyond use.", after: "Factory standard.", category: "Screen" },
-  { id: 2, title: "Samsung Board Repair", before: "Zero power/no boot.", after: "Fully restored.", category: "Board" },
+  { id: 1, title: "iPhone Screen Repair", before: "Cracked beyond use.", after: "Factory standard.", category: "Screen", img: "/media/iphone-repair-before-after.jpg", alt: "Cracked smartphone screen before and after repair" },
+  { id: 2, title: "Samsung Board Repair", before: "Zero power/no boot.", after: "Fully restored.", category: "Board", img: "/media/samsung-board-before-after.jpg", alt: "Damaged circuit board before and after restoration" },
 ];
 
 
@@ -31,9 +31,12 @@ export function TestimonialsSection() {
             <Reveal key={item.id}>
               <div className="group overflow-hidden rounded-[2.5rem] bg-background p-6 ring-1 ring-white/5 transition-all hover:ring-brand-orange/30">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-surface-strong">
-                  <div className="flex h-full w-full items-center justify-center text-xs font-bold uppercase tracking-widest text-muted/20">
-                    {item.title} Media
-                  </div>
+                  <img 
+                    src={item.img} 
+                    alt={item.alt}
+                    className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4 rounded-full bg-brand-gradient px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
                     {item.category}
                   </div>

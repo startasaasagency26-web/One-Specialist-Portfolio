@@ -38,7 +38,7 @@ export function Reveal({
         y: 0,
         filter: "blur(0px)",
       }}
-      viewport={{ once: true, amount: 0.24 }}
+      viewport={{ once: false, amount: 0.24, margin: "0px 0px -10% 0px" }}
       transition={{
         duration: reduceMotion ? 0.45 : 0.9,
         delay,
