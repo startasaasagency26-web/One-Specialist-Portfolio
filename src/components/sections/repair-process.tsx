@@ -7,25 +7,40 @@ import { repairSteps } from "@/content/site";
 
 const icons = [Search, CheckCircle2, Wrench, ShieldCheck, PackageCheck];
 
-// Duplicate steps for seamless loop (triple for extra safety on wide screens)
-const duplicatedSteps = [...repairSteps, ...repairSteps, ...repairSteps];
-
 export function RepairProcessSection() {
   const shouldReduceMotion = useReducedMotion();
 
-  return (
-    <section className="bg-background py-24 md:py-32 overflow-hidden">
-      {/* SVG Gradient Definition */}
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <linearGradient id="brand-gradient-tri" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#E4221D" />
-            <stop offset="50%" stopColor="#F7762D" />
-            <stop offset="100%" stopColor="#E4221D" />
-          </linearGradient>
-        </defs>
-      </svg>
+  // Animation variants for the container (staggering children)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
+  // Animation variants for each card
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: shouldReduceMotion ? 0 : 50 
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 15,
+        mass: 1,
+      },
+    },
+  };
+
+  return (
+    <section id="repair-process" className="bg-background py-24 md:py-32 overflow-hidden">
       <div className="container-shell">
         <Reveal>
           <div className="text-center mb-24">
@@ -38,55 +53,39 @@ export function RepairProcessSection() {
             </p>
           </div>
         </Reveal>
-      </div>
 
-      {/* Infinite Carousel Container */}
-      <div className="relative flex">
+        {/* Staggered Cards Container */}
         <motion.div
-          className="flex gap-16 px-8"
-          animate={shouldReduceMotion ? {} : {
-            x: ["0%", "-33.333%"],
-          }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-          }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid gap-10 md:grid-cols-3 lg:grid-cols-5"
         >
-          {duplicatedSteps.map((step, index) => {
+          {repairSteps.map((step, index) => {
             const Icon = icons[index % icons.length];
             return (
-              <div 
-                key={`${step.title}-${index}`}
-                className="flex min-w-[280px] flex-col items-center text-center group"
+              <motion.div 
+                key={step.title}
+                variants={itemVariants}
+                className="group flex flex-col items-center text-center p-6 rounded-[2rem] bg-surface ring-1 ring-white/5 transition-all hover:ring-brand-orange/30"
               >
-                {/* Icon & Divider Container */}
-                <div className="relative mb-10 flex items-center justify-center w-full">
-                  {/* Icon Circle */}
-                  <div className="z-10 flex h-20 w-20 items-center justify-center rounded-[2rem] bg-surface ring-1 ring-white/10 transition-all duration-500 group-hover:scale-110 group-hover:ring-brand-orange/40">
-                    <Icon 
-                      size={32} 
-                      stroke="url(#brand-gradient-tri)" 
-                      className="transition-transform duration-500 group-hover:rotate-12" 
-                    />
-                  </div>
-
-                  {/* Connecting Divider - using the tri-color gradient */}
-                  <div className="absolute left-[50%] top-1/2 h-[2px] w-[calc(100%+4rem)] -translate-y-1/2 bg-brand-gradient-tri opacity-20 group-hover:opacity-40 transition-opacity" />
+                {/* Icon with Brand Gradient (Red -> Orange) */}
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-background ring-1 ring-white/10 text-brand-orange shadow-2xl transition-all group-hover:scale-110">
+                  <Icon size={28} className="text-brand-orange" />
                 </div>
 
-                {/* Step Label */}
-                <div className="inline-flex px-4 py-1.5 rounded-full bg-white/5 text-[10px] font-black uppercase tracking-widest text-brand-orange border border-white/5 mb-6">
-                  {step.title}
+                <div className="mb-4 inline-flex px-3 py-1 rounded-full bg-white/5 text-[10px] font-black uppercase tracking-widest text-brand-orange">
+                  Step {index + 1}
                 </div>
 
-                <h3 className="font-display text-xl font-bold text-white mb-4">
+                <h3 className="font-display text-xl font-bold text-white mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted max-w-[240px]">
+                <p className="text-sm leading-relaxed text-muted">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </motion.div>

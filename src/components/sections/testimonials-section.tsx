@@ -2,6 +2,7 @@
 
 import { Star, Quote } from "lucide-react";
 import { Reveal } from "@/components/shared/reveal";
+import { GoogleReviewsSection } from "./google-reviews";
 
 const BEFORE_AFTER = [
   { id: 1, title: "iPhone Screen Repair", before: "Cracked beyond use.", after: "Factory standard.", category: "Screen" },
@@ -79,6 +80,8 @@ export function TestimonialsSection() {
             </Reveal>
           ))}
         </div>
+
+        <GoogleReviewsSection />
       </div>
     </section>
   );
