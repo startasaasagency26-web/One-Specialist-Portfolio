@@ -7,6 +7,7 @@ type ButtonLinkProps = PropsWithChildren<{
   href: string;
   variant?: "primary" | "secondary" | "ghost";
   className?: string;
+  onClick?: () => void;
 }>;
 
 export function ButtonLink({
@@ -14,20 +15,21 @@ export function ButtonLink({
   className,
   href,
   variant = "primary",
+  onClick,
 }: ButtonLinkProps) {
+  const baseClasses = "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold uppercase tracking-widest transition duration-300";
+  
+  const variants = {
+    primary: "bg-accent text-background shadow-lg shadow-accent/20 hover:scale-[1.02] hover:bg-accent-hover",
+    secondary: "border border-line bg-surface/50 text-ink backdrop-blur-md hover:bg-surface hover:border-accent/40",
+    ghost: "text-muted hover:text-accent hover:bg-white/5",
+  };
+
   return (
     <Link
       href={href}
-      className={cn(
-        "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold tracking-[-0.01em] transition duration-300",
-        variant === "primary" &&
-          "bg-[linear-gradient(135deg,var(--brand-red)_0%,var(--brand-red-orange)_42%,var(--brand-orange)_82%,var(--brand-amber)_100%)] text-white shadow-[0_24px_60px_-28px_rgba(225,6,0,0.55)] hover:-translate-y-0.5 hover:shadow-[0_28px_70px_-28px_rgba(241,106,17,0.6)]",
-        variant === "secondary" &&
-          "border border-black/10 bg-white/78 text-ink shadow-[0_18px_50px_-28px_rgba(17,17,17,0.18)] backdrop-blur-xl hover:-translate-y-0.5 hover:border-black/15 hover:bg-white/90",
-        variant === "ghost" &&
-          "text-muted-strong hover:bg-black/4 hover:text-ink",
-        className,
-      )}
+      onClick={onClick}
+      className={cn(baseClasses, variants[variant], className)}
     >
       {children}
     </Link>

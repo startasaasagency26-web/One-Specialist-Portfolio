@@ -2,9 +2,9 @@
 
 import {
   Smartphone,
-  TabletSmartphone,
+  ShieldCheck,
+  RefreshCw,
   Wifi,
-  Wrench,
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -12,59 +12,60 @@ import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { services } from "@/content/site";
 
-const icons = [Smartphone, TabletSmartphone, Wrench, Wifi];
+const icons = [Wrench, Smartphone, RefreshCw, Wifi];
+import { Wrench } from "lucide-react";
 
 export function ServicesSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="services" className="container-shell py-24 md:py-32">
-      <Reveal>
-        <SectionHeading
-          label="Services"
-          title="Core services, kept focused."
-          intro="A tighter view of the main retail and service offer."
-        />
-      </Reveal>
+    <section id="services" className="bg-background py-24 md:py-32">
+      <div className="container-shell">
+        <Reveal>
+          <div className="max-w-2xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
+              Precision Services for<br />
+              Your Mobile Life.
+            </h2>
+            <p className="mt-6 text-lg text-muted">
+              From flagship device retail to complex structural repairs, we provide 
+              comprehensive solutions with unmatched technical expertise.
+            </p>
+          </div>
+        </Reveal>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {services.map((item, index) => {
-          const Icon = icons[index];
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {services.map((service, index) => {
+            const Icon = icons[index];
 
-          return (
-            <Reveal key={item.title} delay={0.08 * (index + 1)} className="h-full">
-              <motion.article
-                whileHover={
-                  reduceMotion
-                    ? undefined
-                    : { y: -6, scale: 1.01, transition: { duration: 0.25 } }
-                }
-                className="group flex h-full flex-col rounded-[1.9rem] border border-black/8 bg-white/94 p-6 shadow-[0_20px_60px_-34px_rgba(0,0,0,0.12)] backdrop-blur-xl"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(225,6,0,0.12)_0%,rgba(255,77,26,0.14)_48%,rgba(255,179,71,0.18)_100%)] text-[var(--brand-red-orange)] ring-1 ring-black/6">
-                    <Icon size={20} />
+            return (
+              <Reveal key={service.title} delay={0.1 * index}>
+                <motion.article
+                  whileHover={reduceMotion ? {} : { y: -4 }}
+                  className="group relative flex flex-col items-start rounded-3xl border border-line bg-surface p-8 transition-shadow hover:shadow-2xl hover:shadow-accent/5"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                    <Icon size={24} />
                   </div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                    0{index + 1}
-                  </span>
-                </div>
 
-                <h3 className="mt-7 text-balance font-display text-2xl font-semibold tracking-[-0.04em] text-ink">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-muted">
-                  {item.description}
-                </p>
+                  <h3 className="mt-8 font-display text-2xl font-bold text-ink">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-accent/80">
+                    {service.benefit}
+                  </p>
 
-                <div className="mt-6 h-px w-full bg-[linear-gradient(90deg,rgba(225,6,0,0.24),rgba(255,179,71,0.08),transparent)]" />
-                <p className="mt-3 text-sm font-medium text-muted-strong">
-                  {item.meta}
-                </p>
-              </motion.article>
-            </Reveal>
-          );
-        })}
+                  <p className="mt-4 text-muted leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <div className="mt-8 h-px w-full bg-line" />
+                </motion.article>
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

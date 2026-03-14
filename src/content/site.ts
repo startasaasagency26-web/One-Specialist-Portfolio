@@ -13,70 +13,94 @@ export const heroHighlights = [
   "Black Shark",
 ];
 
-export const aboutPrinciples = [
-  {
-    title: "Established 2007",
-    description: "Long-standing retail and service presence in Malaysia.",
-  },
-  {
-    title: "Sunway Pyramid",
-    description: "A premium all-in-one destination in Selangor.",
-  },
-  {
-    title: "Integrity + expertise",
-    description: "Genuine parts, authentic solutions, and technical credibility.",
-  },
-];
-
 export const services = [
   {
-    title: "Flagship devices",
-    description: "Apple, Samsung, Xiaomi, ROG, and Black Shark in one curated retail floor.",
-    meta: "Authorized vendor focus",
+    title: "Fast Repairs",
+    description: "30-minute battery/back glass service and expert board-level repairs.",
+    benefit: "Certified technician support",
   },
   {
-    title: "Accessories & smart electronics",
-    description: "Premium accessories, tablets, and smart home essentials for everyday mobile use.",
-    meta: "Accessories · Tablets · Smart home",
+    title: "Certified Devices",
+    description: "Flagship smartphones from Apple, Samsung, Xiaomi, ROG, and more.",
+    benefit: "Authentic warranty included",
   },
   {
-    title: "Trade-in + fast repairs",
-    description: "Trade-in and buy-back support alongside 30-minute battery and back glass service.",
-    meta: "Trade-in · Buy-back · Repairs",
+    title: "Trade-In & Buy-Back",
+    description: "Get instant valuation and the best value for your used devices.",
+    benefit: "Instant cash or credit",
   },
   {
-    title: "Telco solutions",
-    description: "Postpaid and prepaid plans handled in the same destination as device and service needs.",
-    meta: "Postpaid · Prepaid",
+    title: "Telco Plans",
+    description: "Tailored postpaid and prepaid solutions for all major providers.",
+    benefit: "Seamless connectivity",
   },
 ];
 
 export const whyChooseUs = [
   {
-    title: "Long-standing trust",
-    description: "Established in 2007 with a 4.9-star consumer reputation.",
+    title: "Long-Standing Trust",
+    description: "Operating since 2007 with a consistent 4.9-star rating.",
   },
   {
-    title: "Cross-platform expertise",
-    description: "Technical service across iOS and Android ecosystems.",
+    title: "Cross-Platform Expertise",
+    description: "Certified technicians for both iOS and Android repairs.",
   },
   {
-    title: "One destination",
-    description: "Retail, repairs, trade-ins, and connectivity in one place.",
+    title: "One Destination",
+    description: "Retail, repairs, trade-in, and telco solutions in one place.",
+  },
+  {
+    title: "Integrity & Genuine Parts",
+    description: "Quality parts and transparent pricing guaranteed.",
   },
 ];
 
-export const contactActions = [
+export const repairSteps = [
   {
-    title: "Visit us",
-    description: "Sunway Pyramid Mall, Selangor, Malaysia",
+    title: "Inspect",
+    description: "Professional diagnosis to identify the root cause.",
   },
   {
-    title: "WhatsApp",
-    description: "Connect the live business number here for quick enquiries.",
+    title: "Confirm",
+    description: "Transparent quote and timeline for your approval.",
   },
   {
-    title: "Opening hours",
-    description: "Add daily operating hours here when final details are ready.",
+    title: "Repair",
+    description: "Certified technicians perform precision work.",
+  },
+  {
+    title: "Test",
+    description: "Rigorous verification of performance and data integrity.",
+  },
+  {
+    title: "Return",
+    description: "Your device is ready for pickup in perfect condition.",
   },
 ];
+
+export const faqs = [
+  {
+    question: "Do you offer a warranty on repairs?",
+    answer: "Yes, all our repairs come with a standard warranty covering parts and workmanship, giving you peace of mind.",
+  },
+  {
+    question: "How long do typical repairs take?",
+    answer: "Many common repairs, such as battery replacements, take as little as 30 minutes. Complex board repairs may require 1-3 business days.",
+  },
+  {
+    question: "Is my data safe during the repair?",
+    answer: "We prioritize data privacy and integrity. While we always recommend a backup, our technicians take extreme care to preserve your information.",
+  },
+  {
+    question: "Do you use genuine parts?",
+    answer: "We use high-quality genuine or premium OEM parts to ensure your device performs exactly as intended by the manufacturer.",
+  },
+];
+
+export const contactDetails = {
+  address: "Sunway Pyramid Mall, Selangor, Malaysia",
+  whatsapp: "+60123456789",
+  phone: "+60312345678",
+  email: "hello@onespecialist.my",
+  hours: "Daily: 10:00 AM – 10:00 PM",
+};

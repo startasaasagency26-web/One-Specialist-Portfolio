@@ -63,24 +63,17 @@ export function HeroVideoMedia({ className = "" }: HeroVideoMediaProps) {
       ].join(" ")}
     >
       {/* Extremely Subtle Brand Glow - Expanded */}
-      <div className="absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,179,71,0.06),transparent_65%)]" />
+      <div className="absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_50%_50%,rgba(16,183,216,0.06),transparent_65%)]" />
       
       {/* Centered Atmospheric Masking - Wider and Clearer */}
       <div className="absolute inset-0 [mask-image:radial-gradient(140%_100%_at_50%_50%,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(140%_100%_at_50%_50%,black_40%,transparent_85%)]">
         <motion.div
-          animate={reduceMotion ? {} : {
-            y: [0, -12, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+// ... (lines 70-80 remains same)
           className="h-full w-full"
         >
           <video
             ref={videoRef}
-            className="h-full w-full translate-x-[2%] translate-y-[1%] scale-[1.3] object-contain opacity-[0.78] [filter:saturate(0.6)_contrast(0.98)_brightness(0.98)_blur(0.8px)] md:scale-[1.4] lg:translate-x-[5%] lg:scale-[1.62]"
+            className="h-full w-full translate-x-[2%] translate-y-[1%] scale-[1.3] object-contain opacity-[0.35] [filter:saturate(0)_contrast(1.1)_brightness(0.6)_blur(0.8px)] md:scale-[1.4] lg:translate-x-[5%] lg:scale-[1.62]"
             src="/media/one-mobile-store-hero.mp4"
             autoPlay={!reduceMotion}
             muted
@@ -95,31 +88,32 @@ export function HeroVideoMedia({ className = "" }: HeroVideoMediaProps) {
       </div>
       
       {/* Cinematic Blending Overlays - Side-to-Side Focus */}
-      <div className="absolute inset-y-0 left-0 w-[30%] bg-[linear-gradient(90deg,#ffffff_0%,rgba(255,255,255,0.7)_50%,transparent_100%)] z-10" />
-      <div className="absolute inset-y-0 right-0 w-[20%] bg-[linear-gradient(270deg,#ffffff_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] z-10" />
-      <div className="absolute inset-x-0 top-0 h-[25%] bg-[linear-gradient(180deg,#ffffff_0%,transparent_100%)] z-10" />
-      <div className="absolute inset-x-0 bottom-0 h-[25%] bg-[linear-gradient(0deg,#ffffff_0%,transparent_100%)] z-10" />
+      <div className="absolute inset-y-0 left-0 w-[40%] bg-[linear-gradient(90deg,var(--background)_0%,rgba(10,18,32,0.7)_50%,transparent_100%)] z-10" />
+      <div className="absolute inset-y-0 right-0 w-[30%] bg-[linear-gradient(270deg,var(--background)_0%,rgba(10,18,32,0.4)_50%,transparent_100%)] z-10" />
+      <div className="absolute inset-x-0 top-0 h-[30%] bg-[linear-gradient(180deg,var(--background)_0%,transparent_100%)] z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-[30%] bg-[linear-gradient(0deg,var(--background)_0%,transparent_100%)] z-10" />
       
       {/* Luminous Core Glow */}
-      <div className="absolute left-[50%] top-[40%] -translate-x-1/2 -translate-y-1/2 h-[50%] w-[60%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.25),transparent_70%)] blur-[120px] z-10 pointer-events-none" />
+      <div className="absolute left-[50%] top-[40%] -translate-x-1/2 -translate-y-1/2 h-[50%] w-[60%] rounded-full bg-[radial-gradient(circle,rgba(16,183,216,0.1),transparent_70%)] blur-[120px] z-10 pointer-events-none" />
 
       {(autoplayBlocked || failed || reduceMotion) && (
-        <div className="pointer-events-auto absolute bottom-6 left-6 z-20 flex">
+        <div className="pointer-events-auto absolute bottom-10 right-10 z-20 flex">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-xs rounded-[1.5rem] border border-black/8 bg-white/78 p-4 shadow-[0_18px_50px_-24px_rgba(17,17,17,0.18)] backdrop-blur-2xl"
+            className="max-w-xs rounded-[1.5rem] border border-line bg-surface/80 p-5 shadow-2xl backdrop-blur-2xl"
           >
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(225,6,0,0.12)_0%,rgba(255,77,26,0.14)_48%,rgba(255,179,71,0.18)_100%)] text-[var(--brand-red-orange)]">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent">
               {failed ? <AlertCircle size={18} /> : <Play size={18} />}
             </div>
-            <p className="mt-4 font-display text-lg font-semibold tracking-[-0.03em] text-ink">
+            <p className="mt-4 font-display text-lg font-bold tracking-tight text-ink">
               {failed
                 ? "Hero video unavailable"
                 : reduceMotion
-                  ? "Motion paused for accessibility"
-                  : "Tap to play the hero video"}
+                  ? "Motion paused"
+                  : "Tap to play"}
             </p>
+// ... (lines 123-141)
             <p className="mt-2 text-sm leading-6 text-muted">
               {failed
                 ? "The hero stays composed even if the asset cannot load."

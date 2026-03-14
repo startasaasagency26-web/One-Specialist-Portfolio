@@ -6,7 +6,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -30,35 +30,32 @@ export function SiteHeader() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "container-shell flex items-center justify-between rounded-[2rem] border px-4 py-3 shadow-[0_18px_60px_-28px_rgba(17,17,17,0.16)] backdrop-blur-2xl md:px-5",
+          "container-shell flex items-center justify-between rounded-full border px-4 py-2 shadow-2xl transition-all duration-300 md:px-6",
           scrolled
-            ? "border-black/10 bg-white/88"
-            : "border-white/60 bg-white/72",
+            ? "border-line bg-surface/80 backdrop-blur-xl"
+            : "border-transparent bg-transparent",
         )}
       >
         <Link href="#top" className="flex items-center gap-3">
-          <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(145deg,var(--brand-red)_0%,var(--brand-red-orange)_48%,var(--brand-orange)_82%,var(--brand-amber)_100%)] shadow-[0_16px_40px_-18px_rgba(225,6,0,0.5)]">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-lg font-display font-semibold text-ink">
-              1
-            </div>
-            <div className="absolute left-1 top-1 h-2.5 w-2.5 rounded-full border border-white/70 bg-white/80" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-display text-lg font-black text-background">
+            1
           </div>
-          <div className="leading-none">
-            <div className="font-display text-base font-semibold tracking-[-0.03em] text-ink">
-              1 Mobile Store
+          <div className="hidden lg:block leading-none">
+            <div className="font-display text-base font-black tracking-tight text-ink">
+              One Specialist
             </div>
-            <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted">
-              One Specialist Mobile
+            <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent">
+              Premium Mobile
             </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-strong transition hover:text-ink"
+              className="text-xs font-bold uppercase tracking-widest text-muted transition hover:text-accent"
             >
               {item.label}
             </Link>
@@ -67,56 +64,49 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <ButtonLink
-            href="https://www.google.com/maps/search/?api=1&query=Sunway+Pyramid+Mall,+Selangor,+Malaysia"
-            variant="secondary"
+            href="#contact"
+            className="rounded-full px-6 py-2 text-xs font-bold uppercase tracking-widest"
           >
-            Visit our store
+            Get a Quote
           </ButtonLink>
         </div>
 
         <button
           type="button"
           aria-expanded={open}
-          aria-controls="mobile-navigation"
           onClick={() => setOpen((value) => !value)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/82 text-ink shadow-[0_12px_30px_-18px_rgba(17,17,17,0.2)] transition hover:border-black/14 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink transition hover:border-accent md:hidden"
         >
-          <span className="sr-only">Toggle navigation</span>
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </motion.div>
 
-      <AnimatePresence initial={false}>
-        {open ? (
+      <AnimatePresence>
+        {open && (
           <motion.div
-            id="mobile-navigation"
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="container-shell mt-3 rounded-[1.75rem] border border-black/10 bg-white/92 p-4 shadow-[0_20px_60px_-28px_rgba(17,17,17,0.24)] backdrop-blur-2xl md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="container-shell mt-3 rounded-[2rem] border border-line bg-surface p-6 shadow-2xl backdrop-blur-2xl md:hidden"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm font-medium text-muted-strong transition hover:bg-black/4 hover:text-ink"
+                  className="text-sm font-bold uppercase tracking-widest text-muted hover:text-accent"
                 >
                   {item.label}
                 </Link>
               ))}
+              <div className="h-px w-full bg-line" />
+              <ButtonLink href="#contact" onClick={() => setOpen(false)} className="w-full">
+                Get a Quote
+              </ButtonLink>
             </div>
-            <ButtonLink
-              href="https://www.google.com/maps/search/?api=1&query=Sunway+Pyramid+Mall,+Selangor,+Malaysia"
-              variant="primary"
-              className="mt-4 w-full"
-            >
-              Visit our store
-            </ButtonLink>
           </motion.div>
-        ) : null}
+        )}
       </AnimatePresence>
     </header>
   );

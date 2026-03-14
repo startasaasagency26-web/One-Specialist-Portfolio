@@ -1,66 +1,100 @@
+"use client";
+
 import {
-  ArrowRight,
-  Clock3,
-  MapPinned,
-  MessageCircleMore,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Phone,
+  Clock,
+  ArrowRight
 } from "lucide-react";
 
 import { ButtonLink } from "@/components/shared/button-link";
 import { Reveal } from "@/components/shared/reveal";
-import { contactActions } from "@/content/site";
-
-const icons = [MapPinned, MessageCircleMore, Clock3];
+import { contactDetails } from "@/content/site";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="container-shell py-24 md:py-32">
-      <Reveal className="overflow-hidden rounded-[2.5rem] border border-black/8 bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(250,250,250,0.92)_100%)] p-8 shadow-[0_30px_90px_-40px_rgba(17,17,17,0.18)] backdrop-blur-2xl md:p-12">
-        <div className="grid gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:items-end">
-          <div>
-            <span className="inline-flex rounded-full border border-black/8 bg-white/76 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-muted-strong shadow-[0_10px_30px_-20px_rgba(17,17,17,0.16)]">
-              Contact
-            </span>
-            <h2 className="mt-6 max-w-xl text-balance font-display text-4xl font-semibold tracking-[-0.06em] text-ink md:text-5xl lg:text-6xl">
-              Visit the store or start an enquiry.
-            </h2>
-            <p className="mt-5 max-w-xl text-pretty text-base leading-8 text-muted md:text-lg">
-              Sunway Pyramid remains the anchor, with space for WhatsApp and live opening hours when final details are ready.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="https://www.google.com/maps/search/?api=1&query=Sunway+Pyramid+Mall,+Selangor,+Malaysia">
-                Visit our store
-                <ArrowRight className="ml-2" size={16} />
-              </ButtonLink>
-              <ButtonLink href="#services" variant="secondary">
-                Explore services
-              </ButtonLink>
+    <section id="contact" className="bg-background py-24 md:py-32">
+      <div className="container-shell">
+        <Reveal>
+          <div className="overflow-hidden rounded-[2.5rem] border border-line bg-surface p-8 shadow-2xl md:p-16">
+            <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+              <div>
+                <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-6xl">
+                  Ready to start?<br />
+                  Let's talk.
+                </h2>
+                <p className="mt-8 text-lg leading-relaxed text-muted">
+                  Whether it's a cracked screen, a device upgrade, or a new telco plan, 
+                  our team at Sunway Pyramid is ready to assist you.
+                </p>
+                
+                <div className="mt-12 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                      <Phone size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted">Call us directly</p>
+                      <p className="font-display text-lg font-bold text-ink">{contactDetails.phone}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                      <Mail size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted">Email us</p>
+                      <p className="font-display text-lg font-bold text-ink">{contactDetails.email}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                      <Clock size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted">Store Hours</p>
+                      <p className="font-display text-lg font-bold text-ink">{contactDetails.hours}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-12 flex flex-wrap gap-4">
+                  <ButtonLink 
+                    href={`https://wa.me/${contactDetails.whatsapp.replace(/\+/g, '')}`}
+                    className="px-8"
+                  >
+                    <MessageSquare className="mr-2" size={18} />
+                    WhatsApp Us
+                  </ButtonLink>
+                  <ButtonLink 
+                    href="https://www.google.com/maps/search/?api=1&query=One+Specialist+Mobile+Sunway+Pyramid"
+                    variant="secondary"
+                    className="px-8"
+                  >
+                    <MapPin className="mr-2" size={18} />
+                    Get Directions
+                  </ButtonLink>
+                </div>
+              </div>
+
+              <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-line bg-surface-strong">
+                {/* Embedded Map Pin or Location Visual */}
+                <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_center,var(--accent)_0%,transparent_70%)] opacity-10" />
+                <div className="relative flex h-full flex-col items-center justify-center p-8 text-center">
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent text-background shadow-[0_0_40px_-5px_var(--accent)]">
+                    <MapPin size={40} />
+                  </div>
+                  <p className="font-display text-2xl font-bold text-ink">Sunway Pyramid Mall</p>
+                  <p className="mt-2 text-muted">{contactDetails.address}</p>
+                  <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-accent">Visit our flagship store</p>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            {contactActions.map((item, index) => {
-              const Icon = icons[index];
-
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-[1.75rem] border border-black/8 bg-white/76 p-5 shadow-[0_20px_60px_-34px_rgba(17,17,17,0.18)] backdrop-blur-2xl"
-                >
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(225,6,0,0.12)_0%,rgba(255,77,26,0.14)_48%,rgba(255,179,71,0.18)_100%)] text-[var(--brand-red-orange)] ring-1 ring-black/6">
-                    <Icon size={19} />
-                  </div>
-                  <h3 className="mt-5 text-balance font-display text-xl font-semibold tracking-[-0.04em] text-ink">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

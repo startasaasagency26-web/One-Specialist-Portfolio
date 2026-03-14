@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-strong: rgba(255, 255, 255, 0.94);
-  --ink: #000000;
-  --muted: #666666;
-  --muted-strong: #333333;
-  --line: rgba(0, 0, 0, 0.06);
-  --brand-red: #e10600;
-  --brand-red-orange: #ff4d1a;
-  --brand-orange: #f58a1f;
-  --brand-amber: #ffb347;
+  --background: #0A1220; /* Dark Navy */
+  --surface: #132238;    /* Midnight Blue */
+  --surface-strong: #1A2E4B;
+  --ink: #F5F7FB;       /* Near-white */
+  --muted: #94A3B8;     /* Muted body text */
+  --muted-strong: #64748B;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #10B7D8;    /* Electric Cyan */
+  --accent-hover: #0EA5C2;
 }
 
 @theme inline {
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
   --color-canvas: var(--background);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
@@ -24,10 +23,8 @@
   --color-muted: var(--muted);
   --color-muted-strong: var(--muted-strong);
   --color-line: var(--line);
-  --color-brand-red: var(--brand-red);
-  --color-brand-red-orange: var(--brand-red-orange);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-amber: var(--brand-amber);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
 }
 
 html {

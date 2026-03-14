@@ -1,11 +1,19 @@
 "use client";
 
-import { ArrowRight, MapPin } from "lucide-react";
+import { Award, CalendarCheck, MapPin, MessageSquare, ShieldCheck, Star, Zap } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
 import { HeroVideoMedia } from "@/components/media/hero-video-media";
 import { ButtonLink } from "@/components/shared/button-link";
+
+const TRUST_ITEMS = [
+  { icon: Award, text: "Established 2007" },
+  { icon: MapPin, text: "Sunway Pyramid" },
+  { icon: Star, text: "4.9 ★ Rated" },
+  { icon: Zap, text: "Same-Day Repairs" },
+  { icon: ShieldCheck, text: "Genuine Parts" },
+];
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
@@ -15,89 +23,103 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  const textY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reduceMotion ? 0 : -18],
-  );
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section
       id="top"
       ref={sectionRef}
-      className="relative overflow-hidden pt-32 md:pt-36 lg:min-h-screen lg:pt-28"
+      className="relative flex min-h-screen items-center overflow-hidden bg-background pt-20"
     >
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-white" />
-      
-      {/* Background Media - Wider presence */}
-      <HeroVideoMedia className="inset-0 -z-10 lg:left-[35%] lg:right-0 lg:inset-y-0" />
+      {/* Background Media */}
+      <HeroVideoMedia className="absolute inset-0 z-0 h-full w-full" />
 
-      <div className="container-shell relative flex min-h-[calc(100vh-7rem)] items-center lg:justify-start pb-16 lg:pb-0">
+      <div className="container-shell relative z-10">
         <motion.div
-          style={{ y: textY }}
-          className="relative z-10 w-full max-w-[27rem] text-center lg:text-left pt-8 md:pt-10 lg:pt-0"
+          style={{ y: contentY, opacity }}
+          className="max-w-4xl pt-10"
         >
-          {/* Subtle Neutral Luminous Wash behind text */}
-          <div className="absolute -inset-x-16 -inset-y-20 -z-10 rounded-[4rem] bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.85),rgba(250,250,250,0.4)_60%,transparent_100%)] blur-[40px]" />
-          
-          <motion.span
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
-            className="inline-flex rounded-full border border-black/8 bg-white/76 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-muted-strong shadow-[0_14px_40px_-24px_rgba(17,17,17,0.14)] backdrop-blur-xl"
-          >
-            EST. 2007 · SUNWAY PYRAMID · 4.9★ RATED
-          </motion.span>
-
-          <motion.h1
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16 }}
-            className="mt-7 font-display text-5xl font-semibold tracking-[-0.075em] text-ink md:text-6xl lg:text-[4rem] lg:leading-[1.12]"
-          >
-            All-in-one<br />
-            mobile store.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24 }}
-            className="mt-5 text-pretty text-lg leading-relaxed text-muted md:text-xl"
-          >
-            Flagship devices, fast repairs, trade-ins, and telco solutions since
-            2007.
-          </motion.p>
-
+          {/* Trust Bar */}
           <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.32 }}
-            className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4"
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap gap-x-6 gap-y-3"
           >
-            <ButtonLink href="#services">
-              Explore services
-              <ArrowRight className="ml-2" size={16} />
-            </ButtonLink>
-            <ButtonLink
-              href="https://www.google.com/maps/search/?api=1&query=Sunway+Pyramid+Mall,+Selangor,+Malaysia"
-              variant="secondary"
-            >
-              <MapPin className="mr-2" size={16} />
-              Visit our store
-            </ButtonLink>
+            {TRUST_ITEMS.map((item, i) => (
+              <div key={item.text} className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-accent">
+                <item.icon size={14} className="opacity-80" />
+                <span>{item.text}</span>
+              </div>
+            ))}
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-14 border-t border-black/8 pt-6 text-[0.82rem] font-medium uppercase tracking-[0.18em] text-muted-strong"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-8 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.04em] text-ink md:text-7xl lg:text-8xl"
           >
-            Apple · Samsung · Xiaomi · ROG · Black Shark
+            Trusted Mobile<br />
+            Repairs & Devices<br />
+            Since 2007.
+          </motion.h1>
+
+          {/* Subline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 max-w-xl text-lg leading-relaxed text-muted md:text-xl md:leading-relaxed"
+          >
+            Sunway Pyramid's premier 4.9★ rated destination for certified repairs, 
+            flagship devices, instant trade-ins, and expert telco solutions. 
+            All in one place.
           </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-12 flex flex-wrap items-center gap-5"
+          >
+            <ButtonLink 
+              href="https://wa.me/your-number" 
+              className="px-8 py-4 text-base font-bold transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_-5px_var(--accent)]"
+            >
+              <MessageSquare className="mr-3" size={20} />
+              WhatsApp Us
+            </ButtonLink>
+            <ButtonLink
+              href="https://www.google.com/maps/search/?api=1&query=One+Specialist+Mobile+Sunway+Pyramid"
+              variant="secondary"
+              className="border-white/10 bg-white/5 px-8 py-4 text-base font-bold backdrop-blur-md hover:bg-white/10"
+            >
+              <MapPin className="mr-3" size={20} />
+              Visit Our Store
+            </ButtonLink>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <div className="flex h-12 w-7 justify-center rounded-full border-2 border-white/10 bg-white/5 backdrop-blur-sm">
+          <motion.div
+            animate={{ y: [4, 24, 4], opacity: [0, 1, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="mt-2 h-2 w-1 rounded-full bg-accent"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
