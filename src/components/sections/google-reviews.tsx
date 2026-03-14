@@ -90,7 +90,7 @@ export function GoogleReviewsSection() {
               <Star key={i} size={14} fill="url(#star-gradient)" className="text-transparent" />
             ))}
           </div>
-          <span className="px-4 text-[11px] sm:text-xs font-bold bg-brand-gradient bg-clip-text text-transparent uppercase tracking-wider">
+          <span className="text-gradient inline-block px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
             4.9 Rated on Google
           </span>
         </div>
