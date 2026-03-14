@@ -12,11 +12,11 @@ const BEFORE_AFTER = [
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section id="results" className="bg-background py-16 md:py-32">
       <div className="container-shell">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-white md:text-5xl">
               Results & Recognition
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
@@ -41,7 +41,7 @@ export function TestimonialsSection() {
                     {item.category}
                   </div>
                 </div>
-                <div className="mt-6 flex justify-between px-2">
+                <div className="mt-6 flex justify-around sm:justify-between px-2">
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-strong">Before</span>
                     <p className="text-sm font-medium text-muted">{item.before}</p>

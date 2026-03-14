@@ -71,7 +71,7 @@ export function GoogleReviewsSection() {
   };
 
   return (
-    <div className="mt-32">
+    <div className="mt-20 md:mt-32">
       {/* SVG Definitions for Generic Gradient Use */}
       <svg width="0" height="0" className="absolute">
         <defs>
@@ -95,7 +95,7 @@ export function GoogleReviewsSection() {
           </span>
         </div>
 
-        <h3 className="font-display text-3xl md:text-4xl font-extrabold text-white text-center">
+        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white text-center">
           Our Five-Star Google Reviews
         </h3>
         

@@ -14,7 +14,7 @@ import { contactDetails } from "@/content/site";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="bg-background py-24 md:py-32">
+    <section id="contact" className="bg-background py-16 md:py-32">
       <div className="container-shell">
         <Reveal>
           <div className="overflow-hidden rounded-[3rem] bg-surface p-10 ring-1 ring-white/5 md:p-20">
@@ -46,10 +46,10 @@ export function ContactSection() {
                   ))}
                 </div>
 
-                <div className="mt-14 flex flex-wrap gap-5">
+                <div className="mt-14 flex flex-col sm:flex-row gap-4 w-full">
                   <ButtonLink 
                     href={`https://wa.me/${contactDetails.whatsapp.replace(/\+/g, '')}`}
-                    className="px-10 py-5"
+                    className="px-10 py-5 w-full sm:w-auto justify-center"
                   >
                     <MessageSquare className="mr-3" size={20} />
                     WhatsApp Enquire
@@ -58,7 +58,7 @@ export function ContactSection() {
                     href="https://maps.google.com" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="group flex h-[60px] items-center gap-4 rounded-full bg-surface-strong pr-6 pl-1.5 ring-1 ring-white/5 transition-all hover:bg-white/[0.03] hover:ring-white/10"
+                    className="group flex h-[60px] items-center gap-4 rounded-full bg-surface-strong pr-6 pl-1.5 ring-1 ring-white/5 transition-all hover:bg-white/[0.03] hover:ring-white/10 w-full sm:w-auto justify-center"
                   >
                     <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-background ring-1 ring-white/10 shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:ring-brand-orange/50 overflow-hidden relative">
                       <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
