@@ -37,46 +37,16 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center gap-3 px-2">
-          {/* Brand Icon SVG */}
-          <div className="relative h-9 w-9">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 176" className="h-full w-full" role="img" aria-label="One Specialist Mobile icon">
-              <defs>
-                <linearGradient id="brandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#ED1C24" />
-                  <stop offset="100%" stopColor="#F15A24" />
-                </linearGradient>
-              </defs>
-              {/* Outer Ring with top-left break */}
-              <circle 
-                cx="88.5" 
-                cy="88" 
-                r="74" 
-                fill="none" 
-                stroke="url(#brandGrad)" 
-                strokeWidth="18" 
-                strokeDasharray="370 110" 
-                strokeDashoffset="-12"
-                strokeLinecap="round"
-              />
-              {/* Precise Serif Inside digit 1 */}
-              <path 
-                d="M 68.6, 51 C 75.6, 47.5 77.4, 40.5 80, 27.6 H 96 V 126 H 111 V 135 H 65 V 126 H 80 V 40.5 C 74.8, 45 72.1, 48.4 68.6, 51 Z" 
-                fill="url(#brandGrad)" 
-              />
-              {/* Star Overlap top-left accurately styled */}
-              <g transform="translate(39, 39)">
-                <line x1="-15" y1="0" x2="15" y2="0" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
-                <line x1="0" y1="-15" x2="0" y2="15" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
-                <line x1="-11" y1="-11" x2="11" y2="11" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
-                <line x1="-11" y1="11" x2="11" y2="-11" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
-              </g>
-            </svg>
-          </div>
-
-          {/* Brand Name Text */}
-          <div className="font-display text-sm font-black tracking-tight text-ink">
-            One Specialist Mobile
+        <Link href="#top" className="flex items-center px-2">
+          {/* Transparent Logo Lockup Image Asset */}
+          <div className="relative h-9 w-48 md:h-10 md:w-56">
+            <Image 
+              src="/media/logo.png" 
+              alt="One Specialist Mobile" 
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
         </Link>
 
