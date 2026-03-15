@@ -8,6 +8,7 @@ import {
 } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 import { ButtonLink } from "@/components/shared/button-link";
@@ -36,17 +37,15 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center gap-4 px-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
-            1
-          </div>
-          <div className="hidden lg:block">
-            <div className="font-display text-sm font-black tracking-tight text-ink">
-              One Specialist
-            </div>
-            <div className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-orange">
-              Premium Mobile
-            </div>
+        <Link href="#top" className="flex items-center px-2">
+          <div className="relative h-9 w-40 md:h-10 md:w-48">
+            <Image 
+              src="/media/logo.png" 
+              alt="One Specialist Mobile" 
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
         </Link>
 
