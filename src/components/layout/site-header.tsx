@@ -18,7 +18,6 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoError, setLogoError] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (value) => {
@@ -39,22 +38,40 @@ export function SiteHeader() {
         )}
       >
         <Link href="#top" className="flex items-center gap-3 px-2">
-          {/* Brand Icon */}
+          {/* Brand Icon SVG */}
           <div className="relative h-9 w-9">
-            {!logoError ? (
-              <Image 
-                src="/media/icon.png" 
-                alt="One Specialist Mobile" 
-                fill
-                className="object-contain"
-                priority
-                onError={() => setLogoError(true)}
+            <svg viewBox="0 0 100 100" className="h-full w-full">
+              <defs>
+                <linearGradient id="brandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#ED1C24" />
+                  <stop offset="100%" stopColor="#F15A24" />
+                </linearGradient>
+              </defs>
+              {/* Outer Ring with top-left break */}
+              <circle 
+                cx="50" 
+                cy="50" 
+                r="43" 
+                fill="none" 
+                stroke="url(#brandGrad)" 
+                strokeWidth="11" 
+                strokeDasharray="210 65" 
+                strokeDashoffset="-7"
+                strokeLinecap="round"
               />
-            ) : (
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
-                1
-              </div>
-            )}
+              {/* Precise Serif Inside digit 1 */}
+              <path 
+                d="M 39,29 C 43,27 44,23 45.5,18 H 54.5 V 74 H 63 V 79 H 37 V 74 H 45.5 V 23 C 42.5,25.5 41,27.5 39,29 Z" 
+                fill="url(#brandGrad)" 
+              />
+              {/* Star Overlap top-left accurately styled */}
+              <g transform="translate(21, 21)">
+                <line x1="-8.5" y1="0" x2="8.5" y2="0" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
+                <line x1="0" y1="-8.5" x2="0" y2="8.5" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
+                <line x1="-6" y1="-6" x2="6" y2="6" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
+                <line x1="-6" y1="6" x2="6" y2="-6" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
+              </g>
+            </svg>
           </div>
 
           {/* Brand Name Text */}
