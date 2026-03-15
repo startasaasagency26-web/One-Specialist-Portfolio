@@ -33,15 +33,10 @@ export function ServicesSection() {
             return (
               <Reveal key={service.title} delay={0.1 * index}>
                 <motion.article
-                  whileHover={reduceMotion ? {} : { y: -8 }}
-                  className="group relative flex flex-col items-start overflow-hidden rounded-[2.5rem] bg-surface p-10 ring-1 ring-line transition-all hover:ring-brand-orange/20"
+                  whileHover={reduceMotion ? {} : { y: -5 }}
+                  className="group relative flex flex-col items-start overflow-hidden rounded-[2.5rem] bg-surface p-10 ring-1 ring-line transition-all duration-500 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] hover:ring-brand-orange/30"
                 >
-                  {/* Gradient border effect */}
-                  <div className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100">
-                    <div className="absolute inset-0 p-[2px] bg-brand-gradient rounded-[2.5rem] [mask-image:linear-gradient(black,black)]" />
-                  </div>
-
-                  <div className="relative mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/5 text-brand-orange">
+                  <div className="relative mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/5 group-hover:bg-brand-orange/10 text-brand-orange transition-colors duration-500">
                     <Icon size={28} />
                   </div>
 
