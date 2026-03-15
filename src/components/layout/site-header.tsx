@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (value) => {
@@ -25,28 +26,45 @@ export function SiteHeader() {
   });
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-6 md:px-10">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         className={cn(
-          "mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500",
+          "mx-auto flex max-w-7xl items-center justify-between px-6 py-4 backdrop-blur-md transition-all duration-300",
+          "rounded-[2.5rem] bg-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.03]",
           scrolled
-            ? "border-line bg-surface/80 shadow-2xl backdrop-blur-2xl"
+            ? "border-line bg-surface/90 shadow-lg"
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center px-2">
-          <div className="relative h-9 w-40 md:h-10 md:w-48">
-            <Image 
-              src="/media/logo.png" 
-              alt="One Specialist Mobile" 
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </div>
+        <Link href="#top" className="flex items-center gap-4 px-2">
+          {!logoError ? (
+            <div className="relative h-9 w-40 md:h-10 md:w-48">
+              <Image 
+                src="/media/logo.png" 
+                alt="One Specialist Mobile" 
+                fill
+                className="object-contain object-left"
+                priority
+                onError={() => setLogoError(true)}
+              />
+            </div>
+          ) : (
+            <>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
+                1
+              </div>
+              <div className="hidden lg:block">
+                <div className="font-display text-sm font-black tracking-tight text-ink">
+                  One Specialist
+                </div>
+                <div className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-orange">
+                  Premium Mobile
+                </div>
+              </div>
+            </>
+          )}
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
