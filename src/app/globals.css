@@ -27,11 +27,11 @@
 }
 
 :root {
-  /* Color Palette - Neutral Apple Aesthetic */
-  --background: #0A0A0A;
-  --canvas: #000000;
-  --surface: #111111;
-  --surface-strong: #1A1A1A;
+  /* Color Palette - Premium White Aesthetic */
+  --background: #FFFFFF;
+  --canvas: #F5F5F7;
+  --surface: #FFFFFF;
+  --surface-strong: #F2F2F7;
   
   /* Brand Colors - Red to Orange Gradient */
   --brand-red: #E4221D;
@@ -41,44 +41,15 @@
   --accent-hover: #D11D18;
   
   /* Typography */
-  --ink: #FFFFFF;
-  --muted: #A3A3A3;
-  --muted-strong: #737373;
-  
-  /* Layout */
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.12);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #FAFAFA;
-    --canvas: #F5F5F7;
-    --surface: #FFFFFF;
-    --surface-strong: #F0F0F5;
-    
-    --ink: #1C1C1E;
-    --muted: #636366;
-    --muted-strong: #8E8e93;
-    
-    --line: rgba(0, 0, 0, 0.06);
-    --line-strong: rgba(0, 0, 0, 0.10);
-  }
-}
-
-:root.light-test {
-  --background: #FAFAFA;
-  --canvas: #F5F5F7;
-  --surface: #FFFFFF;
-  --surface-strong: #F0F0F5;
-  
   --ink: #1C1C1E;
   --muted: #636366;
   --muted-strong: #8E8E93;
   
-  --line: rgba(0, 0, 0, 0.06);
-  --line-strong: rgba(0, 0, 0, 0.10);
+  /* Layout */
+  --line: rgba(0, 0, 0, 0.05);
+  --line-strong: rgba(0, 0, 0, 0.08);
 }
+
 
 @layer base {
   * {
