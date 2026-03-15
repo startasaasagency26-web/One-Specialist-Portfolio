@@ -84,8 +84,8 @@ export function GoogleReviewsSection() {
 
       <div className="flex flex-col items-center mb-16">
         {/* Rating Badge */}
-        <div className="inline-flex items-center rounded-full bg-surface-strong p-1 ring-1 ring-white/10 shadow-lg mb-6">
-          <div className="flex items-center gap-1.5 rounded-full bg-background px-4 py-2 border border-white/5">
+        <div className="inline-flex items-center rounded-full bg-surface-strong p-1 ring-1 ring-line shadow-lg mb-6">
+          <div className="flex items-center gap-1.5 rounded-full bg-background px-4 py-2 border border-line">
             {[...Array(5)].map((_, i) => (
               <Star key={i} size={14} fill="url(#star-gradient)" className="text-transparent" />
             ))}
@@ -95,13 +95,13 @@ export function GoogleReviewsSection() {
           </span>
         </div>
 
-        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white text-center">
+        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-ink text-center">
           Our Five-Star Google Reviews
         </h3>
         
         <a 
           href="#" 
-          className="mt-4 text-xs font-bold text-muted hover:text-brand-orange transition-colors flex items-center gap-1 group border-b border-white/10 hover:border-brand-orange/40 pb-0.5"
+          className="mt-4 text-xs font-bold text-muted hover:text-brand-orange transition-colors flex items-center gap-1 group border-b border-line hover:border-brand-orange/40 pb-0.5"
         >
           See all reviews on Google Maps
           <ChevronRight size={14} className="text-brand-orange transition-transform group-hover:translate-x-0.5" />
@@ -121,14 +121,14 @@ export function GoogleReviewsSection() {
             whileHover={shouldReduceMotion ? {} : { y: -5 }}
             className="w-full flex"
           >
-            <div className="group h-full p-[1px] rounded-[2.5rem] bg-white/5 bg-gradient-to-br from-white/10 to-transparent hover:from-brand-red hover:to-brand-orange transition-all duration-500 shadow-xl flex-grow">
+            <div className="group h-full p-[1px] rounded-[2.5rem] bg-black/5 dark:bg-white/5 bg-gradient-to-br from-black/10 dark:from-white/10 to-transparent hover:from-brand-red hover:to-brand-orange transition-all duration-500 shadow-xl flex-grow">
               <div className="h-full rounded-[2.45rem] bg-background p-8 relative flex flex-col justify-between">
                 <Quote className="absolute top-8 right-8 h-8 w-8 text-brand-orange/5 transition-colors group-hover:text-brand-orange/10" />
                 
                 <div>
                   <div className="flex items-center gap-4 mb-5">
                     {/* Avatar */}
-                    <div className="h-12 w-12 rounded-full bg-surface-strong border border-white/10 flex items-center justify-center text-brand-orange font-bold overflow-hidden ring-2 ring-transparent transition-all group-hover:ring-brand-orange/20 flex-shrink-0">
+                    <div className="h-12 w-12 rounded-full bg-surface-strong border border-line flex items-center justify-center text-brand-orange font-bold overflow-hidden ring-2 ring-transparent transition-all group-hover:ring-brand-orange/20 flex-shrink-0">
                       {review.photo ? (
                         <img src={review.photo} alt={`Photo of ${review.name}`} className="h-full w-full object-cover" />
                       ) : (
@@ -137,7 +137,7 @@ export function GoogleReviewsSection() {
                     </div>
                     <div>
                       <div className="flex flex-col">
-                        <h4 className="font-bold text-white text-base leading-tight">
+                        <h4 className="font-bold text-ink text-base leading-tight">
                           {review.name}
                         </h4>
                         <span className="text-[7px] font-black uppercase tracking-wider text-muted/60 mt-0.5">
@@ -157,7 +157,7 @@ export function GoogleReviewsSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                <div className="mt-6 pt-4 border-t border-line flex justify-between items-center">
                   <div className="flex items-center gap-1.5">
                     <Pin size={11} className="text-brand-orange" fill="url(#star-gradient)" />
                     <span className="text-[9px] font-bold text-muted-strong uppercase tracking-widest">

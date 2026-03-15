@@ -16,7 +16,7 @@ export function TestimonialsSection() {
       <div className="container-shell">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink md:text-5xl">
               Results & Recognition
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
@@ -29,7 +29,7 @@ export function TestimonialsSection() {
         <div className="mt-20 grid gap-8 md:grid-cols-2">
           {BEFORE_AFTER.map((item) => (
             <Reveal key={item.id}>
-              <div className="group overflow-hidden rounded-[2.5rem] bg-background p-6 ring-1 ring-white/5 transition-all hover:ring-brand-orange/30">
+              <div className="group overflow-hidden rounded-[2.5rem] bg-background p-6 ring-1 ring-line transition-all hover:ring-brand-orange/30">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-surface-strong">
                   <img 
                     src={item.img} 
@@ -48,7 +48,7 @@ export function TestimonialsSection() {
                   </div>
                   <div className="text-right">
                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">After</span>
-                    <p className="text-sm font-bold text-white">{item.after}</p>
+                    <p className="text-sm font-bold text-ink">{item.after}</p>
                   </div>
                 </div>
               </div>

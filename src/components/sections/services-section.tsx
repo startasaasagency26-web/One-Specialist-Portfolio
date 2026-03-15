@@ -16,7 +16,7 @@ export function ServicesSection() {
       <div className="container-shell">
         <Reveal>
           <div className="max-w-3xl">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-white md:text-6xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-6xl">
               Precision Services for Your Mobile Life.
             </h2>
             <p className="mt-8 text-lg font-medium text-muted">
@@ -34,18 +34,18 @@ export function ServicesSection() {
               <Reveal key={service.title} delay={0.1 * index}>
                 <motion.article
                   whileHover={reduceMotion ? {} : { y: -8 }}
-                  className="group relative flex flex-col items-start overflow-hidden rounded-[2.5rem] bg-surface p-10 ring-1 ring-white/5 transition-all hover:ring-brand-orange/20"
+                  className="group relative flex flex-col items-start overflow-hidden rounded-[2.5rem] bg-surface p-10 ring-1 ring-line transition-all hover:ring-brand-orange/20"
                 >
                   {/* Gradient border effect */}
                   <div className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100">
                     <div className="absolute inset-0 p-[2px] bg-brand-gradient rounded-[2.5rem] [mask-image:linear-gradient(black,black)]" />
                   </div>
 
-                  <div className="relative mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 text-brand-orange">
+                  <div className="relative mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/5 text-brand-orange">
                     <Icon size={28} />
                   </div>
 
-                  <h3 className="relative font-display text-2xl font-bold text-white">
+                  <h3 className="relative font-display text-2xl font-bold text-ink">
                     {service.title}
                   </h3>
                   

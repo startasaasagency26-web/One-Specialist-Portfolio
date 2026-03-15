@@ -15,16 +15,16 @@ export function FAQSection() {
         <div className="grid gap-20 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>
-              <h2 className="font-display text-4xl font-extrabold tracking-tight text-white md:text-6xl">
+              <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-6xl">
                 FAQ.
               </h2>
               <p className="mt-8 text-lg font-medium text-muted">
                 Everything you need to know about our repair process, data security, 
                 and device guarantees.
               </p>
-              <div className="mt-12 rounded-3xl bg-surface p-8 ring-1 ring-white/5">
+              <div className="mt-12 rounded-3xl bg-surface p-8 ring-1 ring-line">
                 <p className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Enquiries</p>
-                <p className="mt-4 text-sm font-medium text-white">Still have questions? Chat with our experts.</p>
+                <p className="mt-4 text-sm font-medium text-ink">Still have questions? Chat with our experts.</p>
                 <button className="mt-6 text-xs font-bold uppercase tracking-widest text-brand-orange hover:underline">
                   Chat Now →
                 </button>
@@ -33,7 +33,7 @@ export function FAQSection() {
           </div>
 
           <div className="lg:col-span-8">
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-line">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;
                 return (
@@ -43,10 +43,10 @@ export function FAQSection() {
                         onClick={() => setOpenIndex(isOpen ? null : idx)}
                         className="flex w-full items-center justify-between text-left"
                       >
-                        <span className="font-display text-xl font-bold text-white group-hover:text-brand-orange transition-colors">
+                        <span className="font-display text-xl font-bold text-ink group-hover:text-brand-orange transition-colors">
                           {faq.question}
                         </span>
-                        <div className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isOpen ? 'bg-brand-gradient text-white' : 'bg-white/5 text-muted group-hover:text-white'}`}>
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isOpen ? 'bg-brand-gradient text-white' : 'bg-black/5 dark:bg-white/5 text-muted group-hover:text-ink'}`}>
                           {isOpen ? <Minus size={18} /> : <Plus size={18} />}
                         </div>
                       </button>

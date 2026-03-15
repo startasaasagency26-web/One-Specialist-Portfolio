@@ -32,7 +32,7 @@ export function SiteHeader() {
         className={cn(
           "mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500",
           scrolled
-            ? "border-white/10 bg-surface/80 shadow-2xl backdrop-blur-2xl"
+            ? "border-line bg-surface/80 shadow-2xl backdrop-blur-2xl"
             : "border-transparent bg-transparent",
         )}
       >
@@ -41,7 +41,7 @@ export function SiteHeader() {
             1
           </div>
           <div className="hidden lg:block">
-            <div className="font-display text-sm font-black tracking-tight text-white">
+            <div className="font-display text-sm font-black tracking-tight text-ink">
               One Specialist
             </div>
             <div className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-orange">
@@ -55,7 +55,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[10px] font-black uppercase tracking-[0.2em] text-muted transition hover:text-white"
+              className="text-[10px] font-black uppercase tracking-[0.2em] text-muted transition hover:text-ink"
             >
               {item.label}
             </Link>
@@ -74,7 +74,7 @@ export function SiteHeader() {
             type="button"
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-brand-orange/40 md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-black/5 dark:bg-white/5 text-ink transition hover:border-brand-orange/40 md:hidden"
           >
             {open ? <X size={16} /> : <Menu size={16} />}
           </button>
@@ -87,7 +87,7 @@ export function SiteHeader() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="mt-4 overflow-hidden rounded-[2.5rem] border border-white/10 bg-surface p-8 shadow-2xl backdrop-blur-2xl md:hidden"
+            className="mt-4 overflow-hidden rounded-[2.5rem] border border-line bg-surface p-8 shadow-2xl backdrop-blur-2xl md:hidden"
           >
             <div className="flex flex-col gap-6">
               {navItems.map((item) => (
@@ -95,12 +95,12 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-xs font-black uppercase tracking-[0.2em] text-muted hover:text-white"
+                  className="text-xs font-black uppercase tracking-[0.2em] text-muted hover:text-ink"
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="h-px w-full bg-white/5" />
+              <div className="h-px w-full bg-line" />
               <ButtonLink href="#contact" onClick={() => setOpen(false)} className="w-full">
                 Get a Quote
               </ButtonLink>

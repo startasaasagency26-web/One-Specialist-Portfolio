@@ -44,7 +44,7 @@ export function RepairProcessSection() {
       <div className="container-shell">
         <Reveal>
           <div className="text-center mb-20">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink md:text-5xl">
               Our <span className="text-gradient">Repair Process</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
@@ -68,18 +68,18 @@ export function RepairProcessSection() {
               <motion.div 
                 key={step.title}
                 variants={itemVariants}
-                className="group flex flex-col items-center text-center p-6 rounded-[2rem] bg-surface ring-1 ring-white/5 transition-all hover:ring-brand-orange/30 min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-center"
+                className="group flex flex-col items-center text-center p-6 rounded-[2rem] bg-surface ring-1 ring-line transition-all hover:ring-brand-orange/30 min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-center"
               >
                 {/* Icon with Brand Gradient (Red -> Orange) */}
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-background ring-1 ring-white/10 text-brand-orange shadow-2xl transition-all group-hover:scale-110">
                   <Icon size={28} className="text-brand-orange" />
                 </div>
 
-                <div className="mb-4 inline-flex px-3 py-1 rounded-full bg-white/5 text-[10px] font-black uppercase tracking-widest text-brand-orange">
+                <div className="mb-4 inline-flex px-3 py-1 rounded-full bg-black/5 dark:bg-white/5 text-[10px] font-black uppercase tracking-widest text-brand-orange">
                   Step {index + 1}
                 </div>
 
-                <h3 className="font-display text-xl font-bold text-white mb-3">
+                <h3 className="font-display text-xl font-bold text-ink mb-3">
                   {step.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted">

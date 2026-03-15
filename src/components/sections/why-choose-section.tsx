@@ -13,7 +13,7 @@ export function WhyChooseSection() {
       <div className="container-shell">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
               Why <span className="text-gradient">One Specialist</span>?
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
@@ -28,10 +28,10 @@ export function WhyChooseSection() {
             return (
               <Reveal key={item.title} delay={0.1 * index}>
                 <div className="group flex flex-col items-center text-center">
-                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-background ring-1 ring-white/5 shadow-2xl transition-all group-hover:ring-brand-orange/30">
+                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-background ring-1 ring-line shadow-2xl transition-all group-hover:ring-brand-orange/30">
                     <Icon size={32} className="text-brand-orange" />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-white">
+                  <h3 className="font-display text-xl font-bold text-ink">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-relaxed text-muted">
