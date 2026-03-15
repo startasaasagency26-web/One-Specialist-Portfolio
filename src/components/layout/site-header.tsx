@@ -37,17 +37,21 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center px-2">
-          {/* Transparent Logo Lockup Image Asset */}
-          <div className="relative h-9 w-48 md:h-10 md:w-56">
+        <Link href="#top" className="flex items-center gap-2.5 px-2">
+          {/* Logo Icon and Text Lockup */}
+          <div className="relative flex h-8 w-8 shrink-0 items-center justify-center md:h-9 md:w-9">
             <Image 
-              src="/media/logo.png" 
-              alt="One Specialist Mobile" 
-              fill
-              className="object-contain object-left"
+              src="/branding/one-mobile-icon.png" 
+              alt="One Specialist Mobile Icon" 
+              width={36}
+              height={36}
+              className="object-contain"
               priority
             />
           </div>
+          <span className="text-[13px] font-bold tracking-tight text-ink md:text-[15px]">
+            One Specialist Mobile
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
