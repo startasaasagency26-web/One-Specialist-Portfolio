@@ -20,7 +20,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 flex flex-wrap justify-center gap-x-8 gap-y-4 rounded-full border border-white/5 bg-white/5 px-6 py-3 backdrop-blur-md"
+            className="mb-8 flex flex-wrap justify-center gap-x-8 gap-y-4 rounded-full border border-line bg-surface/50 px-6 py-3 backdrop-blur-md shadow-sm"
           >
             {[
               { icon: ShieldCheck, text: "Established 2007" },
@@ -39,7 +39,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl font-display text-5xl font-black tracking-tight text-white md:text-7xl lg:text-8xl"
+            className="max-w-4xl font-display text-5xl font-black tracking-tight text-ink md:text-7xl lg:text-8xl"
           >
             Trusted Mobile Repairs & Devices Since <span className="text-gradient">2007</span>.
           </motion.h1>

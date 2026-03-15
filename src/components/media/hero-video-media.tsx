@@ -34,11 +34,11 @@ export function HeroVideoMedia() {
   };
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#0A0A0A]">
+    <div className="absolute inset-0 overflow-hidden bg-[#FFFFFF]">
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,10,10,0.4)_70%,#0A0A0A_100%)]" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
-      <div className="absolute inset-0 z-10 bg-[#0A0A0A]/40" />
+      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.4)_70%,#FFFFFF_100%)]" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#FFFFFF] via-transparent to-[#FFFFFF]" />
+      <div className="absolute inset-0 z-10 bg-[#FFFFFF]/40" />
 
       {/* Brand Glow Overlay */}
       <div className="absolute inset-0 z-10 bg-brand-gradient opacity-5 mix-blend-overlay" />
