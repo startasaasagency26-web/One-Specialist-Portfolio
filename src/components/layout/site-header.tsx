@@ -38,33 +38,29 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center gap-4 px-2">
-          {!logoError ? (
-            <div className="relative h-9 w-40 md:h-10 md:w-48">
+        <Link href="#top" className="flex items-center gap-3 px-2">
+          {/* Brand Icon */}
+          <div className="relative h-9 w-9">
+            {!logoError ? (
               <Image 
-                src="/media/logo.png" 
+                src="/media/icon.png" 
                 alt="One Specialist Mobile" 
                 fill
-                className="object-contain object-left"
+                className="object-contain"
                 priority
                 onError={() => setLogoError(true)}
               />
-            </div>
-          ) : (
-            <>
+            ) : (
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
                 1
               </div>
-              <div className="hidden lg:block">
-                <div className="font-display text-sm font-black tracking-tight text-ink">
-                  One Specialist
-                </div>
-                <div className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-orange">
-                  Premium Mobile
-                </div>
-              </div>
-            </>
-          )}
+            )}
+          </div>
+
+          {/* Brand Name Text */}
+          <div className="font-display text-sm font-black tracking-tight text-ink">
+            One Specialist Mobile
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
