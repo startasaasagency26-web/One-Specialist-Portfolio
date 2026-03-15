@@ -6,6 +6,7 @@ import {
   MessageSquare,
   Phone,
   Clock,
+  Navigation,
 } from "lucide-react";
 
 import { ButtonLink } from "@/components/shared/button-link";
@@ -58,19 +59,12 @@ export function ContactSection() {
                     href="https://maps.google.com" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="group flex flex-col sm:flex-row h-auto sm:h-[60px] items-center gap-4 rounded-3xl sm:rounded-full bg-surface-strong pr-6 pl-1.5 ring-1 ring-line transition-all hover:bg-white/[0.03] hover:ring-white/10 w-full sm:w-auto justify-center p-4 sm:p-0"
+                    className="group inline-flex items-center justify-center rounded-full px-8 py-4 bg-surface border border-line shadow-[0_8px_16px_rgba(0,0,0,0.03)] transition-all duration-500 hover:shadow-md hover:-translate-y-0.5 w-full sm:w-auto gap-2.5 text-ink hover:border-brand-orange/30 text-xs font-bold uppercase tracking-widest h-[52px]"
                   >
-                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-background ring-1 ring-white/10 shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:ring-brand-orange/50 overflow-hidden relative">
-                      <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
-                      <MapPin 
-                        size={20} 
-                        className="text-white transition-all duration-300 group-hover:text-brand-orange group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
-                      />
-                    </div>
-                    <span className="font-display text-sm font-bold tracking-wide text-ink transition-colors group-hover:text-brand-orange">
-                      Directions
-                    </span>
+                    <Navigation size={16} className="text-brand-orange transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
+                    <span>Directions</span>
                   </a>
+
                 </div>
               </div>
 
