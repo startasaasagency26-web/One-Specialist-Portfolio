@@ -40,7 +40,7 @@ export function SiteHeader() {
         <Link href="#top" className="flex items-center gap-3 px-2">
           {/* Brand Icon SVG */}
           <div className="relative h-9 w-9">
-            <svg viewBox="0 0 100 100" className="h-full w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 176" className="h-full w-full" role="img" aria-label="One Specialist Mobile icon">
               <defs>
                 <linearGradient id="brandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#ED1C24" />
@@ -49,27 +49,27 @@ export function SiteHeader() {
               </defs>
               {/* Outer Ring with top-left break */}
               <circle 
-                cx="50" 
-                cy="50" 
-                r="43" 
+                cx="88.5" 
+                cy="88" 
+                r="74" 
                 fill="none" 
                 stroke="url(#brandGrad)" 
-                strokeWidth="11" 
-                strokeDasharray="210 65" 
-                strokeDashoffset="-7"
+                strokeWidth="18" 
+                strokeDasharray="370 110" 
+                strokeDashoffset="-12"
                 strokeLinecap="round"
               />
               {/* Precise Serif Inside digit 1 */}
               <path 
-                d="M 39,29 C 43,27 44,23 45.5,18 H 54.5 V 74 H 63 V 79 H 37 V 74 H 45.5 V 23 C 42.5,25.5 41,27.5 39,29 Z" 
+                d="M 68.6, 51 C 75.6, 47.5 77.4, 40.5 80, 27.6 H 96 V 126 H 111 V 135 H 65 V 126 H 80 V 40.5 C 74.8, 45 72.1, 48.4 68.6, 51 Z" 
                 fill="url(#brandGrad)" 
               />
               {/* Star Overlap top-left accurately styled */}
-              <g transform="translate(21, 21)">
-                <line x1="-8.5" y1="0" x2="8.5" y2="0" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
-                <line x1="0" y1="-8.5" x2="0" y2="8.5" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
-                <line x1="-6" y1="-6" x2="6" y2="6" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
-                <line x1="-6" y1="6" x2="6" y2="-6" stroke="url(#brandGrad)" strokeWidth="4.5" strokeLinecap="round" />
+              <g transform="translate(39, 39)">
+                <line x1="-15" y1="0" x2="15" y2="0" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
+                <line x1="0" y1="-15" x2="0" y2="15" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
+                <line x1="-11" y1="-11" x2="11" y2="11" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
+                <line x1="-11" y1="11" x2="11" y2="-11" stroke="url(#brandGrad)" strokeWidth="7" strokeLinecap="round" />
               </g>
             </svg>
           </div>
