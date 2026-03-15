@@ -77,9 +77,11 @@ export function ContactSection() {
               <div className="relative aspect-square overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line">
                 <div className="absolute inset-0 bg-brand-gradient opacity-5" />
                 <div className="relative flex h-full flex-col items-center justify-center p-12 text-center">
-                  <div className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-brand-gradient text-white shadow-2xl">
-                    <MapPin size={40} />
+                  <div className="mb-8 flex h-24 w-24 items-center justify-center rounded-3xl bg-surface ring-1 ring-line shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)] relative">
+                    <div className="absolute inset-2 rounded-2xl border border-dashed border-brand-orange/20 bg-gradient-to-b from-white to-background/30" />
+                    <MapPin size={32} className="text-brand-orange relative z-10" strokeWidth={1.5} />
                   </div>
+
                   <h3 className="font-display text-3xl font-black text-ink">Sunway Pyramid</h3>
                   <p className="mt-4 max-w-xs text-base font-medium text-muted">{contactDetails.address}</p>
                   <div className="mt-10 inline-flex items-center rounded-full bg-black/5 dark:bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-brand-orange">
