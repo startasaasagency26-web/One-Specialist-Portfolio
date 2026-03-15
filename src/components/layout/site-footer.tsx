@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { navItems } from "@/content/site";
 import { MessageCircle, Phone, MapPin } from "lucide-react";
 
@@ -9,13 +10,20 @@ export function SiteFooter() {
     <footer className="bg-background border-t border-line py-24 pb-40">
       <div className="container-shell grid gap-20 md:grid-cols-12">
         <div className="md:col-span-5">
-          <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-gradient font-display text-sm font-black text-white">
-              1
+          <div className="flex items-center gap-2.5">
+            <div className="relative flex h-8 w-8 shrink-0 items-center justify-center md:h-9 md:w-9">
+              <Image 
+                src="/branding/one-mobile-icon.png" 
+                alt="One Specialist Mobile Icon" 
+                width={36}
+                height={36}
+                className="object-contain"
+                priority
+              />
             </div>
-            <p className="font-display text-2xl font-black tracking-tight text-ink">
-              One Specialist
-            </p>
+            <span className="text-[13px] font-bold tracking-tight text-ink md:text-[15px]">
+              One Specialist Mobile
+            </span>
           </div>
           <p className="mt-8 text-base font-medium leading-relaxed text-muted">
             The standard for premium mobile excellence at Sunway Pyramid since 
