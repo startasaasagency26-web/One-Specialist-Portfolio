@@ -18,8 +18,8 @@ export function ContactSection() {
     <section id="contact" className="bg-background py-16 md:py-32">
       <div className="container-shell">
         <Reveal>
-          <div className="overflow-hidden rounded-[3rem] bg-surface p-10 ring-1 ring-line md:p-20">
-            <div className="grid gap-20 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden rounded-[3rem] bg-surface p-6 md:p-20 ring-1 ring-line">
+            <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 lg:items-center">
               <div>
                 <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-7xl">
                   Let's <span className="text-gradient">Talk</span>.
@@ -29,7 +29,7 @@ export function ContactSection() {
                   telco solution, we're here to help.
                 </p>
                 
-                <div className="mt-14 space-y-8">
+                <div className="mt-10 md:mt-14 space-y-6 md:space-y-8">
                   {[
                     { icon: Phone, label: "Official Line", value: contactDetails.phone },
                     { icon: Mail, label: "Email Support", value: contactDetails.email },
@@ -47,14 +47,18 @@ export function ContactSection() {
                   ))}
                 </div>
 
-                <div className="mt-14 flex flex-col sm:flex-row gap-4 w-full">
-                  <ButtonLink 
+                <div className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 w-full">
+                  <a 
                     href={`https://wa.me/${contactDetails.whatsapp.replace(/\+/g, '')}`}
-                    className="px-10 py-5 w-full sm:w-auto justify-center"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center justify-center rounded-full px-8 h-[52px] bg-brand-orange/5 border border-brand-orange/30 text-ink shadow-[0_8px_16px_rgba(242,75,38,0.03)] transition-all duration-500 hover:shadow-md hover:border-brand-orange/50 hover:-translate-y-0.5 w-full sm:w-auto gap-2.5 text-xs font-bold uppercase tracking-widest"
                   >
-                    <MessageSquare className="mr-3" size={20} />
-                    WhatsApp Enquire
-                  </ButtonLink>
+
+                    <MessageSquare size={16} className="text-brand-orange transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
+                    <span>WhatsApp Enquire</span>
+                  </a>
+
                   <a 
                     href="https://maps.google.com" 
                     target="_blank" 
@@ -68,9 +72,9 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="relative aspect-square overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line">
+              <div className="relative aspect-auto md:aspect-square h-auto md:h-full overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line py-16 md:py-0">
                 <div className="absolute inset-0 bg-brand-gradient opacity-5" />
-                <div className="relative flex h-full flex-col items-center justify-center p-12 text-center">
+                <div className="relative flex h-full flex-col items-center justify-center p-8 md:p-12 text-center">
                   <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-surface-strong ring-1 ring-line shadow-sm relative">
                     <div className="absolute inset-[4px] bg-surface rounded-[1.25rem] ring-1 ring-line shadow-sm flex items-center justify-center">
                       <MapPin size={24} className="text-brand-orange" strokeWidth={1.5} />
