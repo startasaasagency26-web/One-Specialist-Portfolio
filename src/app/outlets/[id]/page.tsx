@@ -52,7 +52,7 @@ export default async function OutletDetailPage({ params }: { params: Promise<{ i
 
           {/* Details Column */}
           <div className="lg:col-span-5">
-            <div className="rounded-[2.5rem] bg-surface p-8 md:p-10 ring-1 ring-line shadow-md relative overflow-hidden h-full flex flex-col justify-center">
+            <div className="rounded-[2.5rem] bg-surface p-6 md:p-10 ring-1 ring-line shadow-md relative overflow-hidden h-full flex flex-col justify-center">
               <div className="absolute inset-0 bg-brand-gradient opacity-5" />
               
               <div className="relative z-10">

@@ -21,7 +21,7 @@ export default function OutletsPage() {
         <div className="mt-16 md:mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {outlets.map((outlet, index) => (
             <Reveal key={outlet.id} delay={index * 0.1}>
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem] bg-surface p-8 ring-1 ring-line transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:ring-brand-orange/20">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem] bg-surface p-6 md:p-8 ring-1 ring-line transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:ring-brand-orange/20">
                 <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
                 <Link href={`/outlets/${outlet.id}`} className="absolute inset-0 z-20" aria-label={`View ${outlet.name} details`} />
                 
