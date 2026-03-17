@@ -37,7 +37,7 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <Link href="#top" className="flex items-center gap-2.5 px-2">
+        <Link href="/" className="flex items-center gap-2.5 px-2">
           {/* Logo Icon and Text Lockup */}
           <div className="relative flex h-8 w-8 shrink-0 items-center justify-center md:h-9 md:w-9">
             <Image 
@@ -68,7 +68,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <ButtonLink
-            href="#contact"
+            href="/#contact"
             className="hidden px-5 py-2.5 text-[10px] md:inline-flex"
           >
             Get a Quote
@@ -105,7 +105,7 @@ export function SiteHeader() {
                 </Link>
               ))}
               <div className="h-px w-full bg-line" />
-              <ButtonLink href="#contact" onClick={() => setOpen(false)} className="w-full">
+              <ButtonLink href="/#contact" onClick={() => setOpen(false)} className="w-full">
                 Get a Quote
               </ButtonLink>
             </div>

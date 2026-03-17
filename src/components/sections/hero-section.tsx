@@ -62,7 +62,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-12 flex flex-wrap justify-center gap-4"
           >
-            <ButtonLink href="#contact" variant="primary">
+            <ButtonLink href="/#contact" variant="primary">
               Get a Quote
             </ButtonLink>
             <ButtonLink href="/outlets" variant="secondary">
