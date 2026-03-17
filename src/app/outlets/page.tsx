@@ -1,6 +1,7 @@
 import { MapPin, MessageSquare, Navigation, Phone, Clock } from "lucide-react";
 import { outlets } from "@/content/site";
 import { Reveal } from "@/components/shared/reveal";
+import Link from "next/link";
 
 export default function OutletsPage() {
   return (
@@ -22,6 +23,7 @@ export default function OutletsPage() {
             <Reveal key={outlet.id} delay={index * 0.1}>
               <div className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem] bg-surface p-8 ring-1 ring-line transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:ring-brand-orange/20">
                 <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
+                <Link href={`/outlets/${outlet.id}`} className="absolute inset-0 z-20" aria-label={`View ${outlet.name} details`} />
                 
                 <div className="relative z-10 flex flex-1 flex-col">
                   {/* Status / Type Badge */}
@@ -54,7 +56,7 @@ export default function OutletsPage() {
                   </div>
 
                   {/* Actions */}
-                  <div className="mt-10 flex flex-col gap-3">
+                  <div className="mt-10 flex flex-col gap-3 relative z-30">
                     <a
                       href={outlet.mapUrl}
                       target="_blank"
