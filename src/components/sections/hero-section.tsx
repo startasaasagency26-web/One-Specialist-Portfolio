@@ -65,7 +65,7 @@ export function HeroSection() {
             <ButtonLink href="#contact" variant="primary">
               Get a Quote
             </ButtonLink>
-            <ButtonLink href="https://maps.google.com" variant="secondary">
+            <ButtonLink href="/outlets" variant="secondary">
               Visit Our Store
             </ButtonLink>
           </motion.div>

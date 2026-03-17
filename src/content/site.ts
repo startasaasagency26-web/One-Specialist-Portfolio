@@ -104,3 +104,16 @@ export const contactDetails = {
   email: "hello@onespecialist.my",
   hours: "Daily: 10:00 AM – 10:00 PM",
 };
+
+export const outlets = [
+  {
+    id: "sunway-pyramid",
+    name: "Sunway Pyramid",
+    type: "Flagship Store",
+    address: "Sunway Pyramid Mall, 3, Jalan PJS 11/15, Bandar Sunway, 47500 Petaling Jaya, Selangor, Malaysia",
+    whatsapp: "+60123456789",
+    phone: "+60312345678",
+    hours: "Daily: 10:00 AM – 10:00 PM",
+    mapUrl: "https://maps.google.com/?q=Sunway+Pyramid",
+  }
+];

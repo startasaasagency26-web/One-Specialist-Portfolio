@@ -31,11 +31,15 @@ export function SiteFooter() {
             tailored connectivity.
           </p>
           <div className="mt-10 flex gap-4">
-            {[MessageCircle, Phone, MapPin].map((Icon, i) => (
-              <a key={i} href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/5 text-muted transition hover:text-brand-orange hover:bg-black/10 dark:hover:bg-white/20">
-                <Icon size={18} />
-              </a>
-            ))}
+            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/5 text-muted transition hover:text-brand-orange hover:bg-black/10 dark:hover:bg-white/20">
+              <MessageCircle size={18} />
+            </a>
+            <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/5 text-muted transition hover:text-brand-orange hover:bg-black/10 dark:hover:bg-white/20">
+              <Phone size={18} />
+            </a>
+            <Link href="/outlets" className="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 dark:bg-white/5 text-muted transition hover:text-brand-orange hover:bg-black/10 dark:hover:bg-white/20">
+              <MapPin size={18} />
+            </Link>
           </div>
         </div>
 
