@@ -57,9 +57,9 @@ export function SiteFooter() {
         <div className="md:col-span-3">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-orange">Legal</p>
           <nav className="mt-10 flex flex-col gap-5 text-sm font-bold text-muted">
-            <Link href="#" className="transition hover:text-ink">Privacy Policy</Link>
-            <Link href="#" className="transition hover:text-ink">Terms of Service</Link>
-            <Link href="#" className="transition hover:text-ink">Service Warranty</Link>
+            <Link href="/legal?tab=privacy" className="transition hover:text-ink">Privacy Policy</Link>
+            <Link href="/legal?tab=terms" className="transition hover:text-ink">Terms of Service</Link>
+            <Link href="/legal?tab=warranty" className="transition hover:text-ink">Service Warranty</Link>
           </nav>
         </div>
       </div>
