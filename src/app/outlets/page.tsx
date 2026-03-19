@@ -41,7 +41,7 @@ export default function OutletsPage() {
                   {/* Store Details */}
                   <h2 className="font-display text-2xl font-bold text-ink">{outlet.name}</h2>
                   <p className="mt-4 text-sm font-medium leading-relaxed text-muted flex-1">
-                    {outlet.address}
+                    {outlet.address.split(',')[0]}
                   </p>
 
                   <div className="mt-8 space-y-4">
