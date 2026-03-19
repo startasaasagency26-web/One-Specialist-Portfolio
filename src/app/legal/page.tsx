@@ -56,7 +56,7 @@ function LegalDashboard() {
                     type="button"
                     onClick={() => setActiveTab(docKey)}
                     className={cn(
-                      "flex flex-1 items-center gap-3 rounded-2xl px-4 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 lg:flex-initial lg:px-5",
+                      "flex items-center gap-3 rounded-2xl px-4 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 whitespace-nowrap lg:gap-4 lg:px-5",
                       isActive
                         ? "bg-brand-orange text-white shadow-lg shadow-brand-orange/20"
                         : "text-muted hover:bg-black/5 dark:hover:bg-white/5 hover:text-ink"
@@ -72,7 +72,7 @@ function LegalDashboard() {
 
           {/* Content Pane */}
           <div className="lg:col-span-8">
-            <div className="rounded-[2.5rem] bg-surface p-8 md:p-12 ring-1 ring-line shadow-xl relative overflow-hidden">
+            <div className="rounded-[2.5rem] bg-surface p-6 md:p-12 ring-1 ring-line shadow-xl relative overflow-hidden">
               <div className="absolute inset-0 bg-brand-gradient opacity-5" />
               
               <div className="relative z-10">
