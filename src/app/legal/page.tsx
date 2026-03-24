@@ -1,8 +1,9 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
-import { FileText, Shield, Sparkles } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { AnimatePresence, motion } from "motion/react";
+import { FileText, Shield, Sparkles, ChevronDown } from "lucide-react";
 import { legalDocuments } from "@/content/legal";
 import { Reveal } from "@/components/shared/reveal";
 import { cn } from "@/lib/utils";
@@ -11,6 +12,7 @@ function LegalDashboard() {
   const searchParams = useSearchParams();
   const tabFromUrl = searchParams.get("tab") as keyof typeof legalDocuments;
   const [activeTab, setActiveTab] = useState<keyof typeof legalDocuments>("privacy");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (tabFromUrl && legalDocuments[tabFromUrl]) {
@@ -26,12 +28,14 @@ function LegalDashboard() {
     warranty: Sparkles,
   };
 
+  const ActiveIcon = tabIcons[activeTab] || FileText;
+
   return (
     <main className="min-h-[100dvh] bg-background pt-32 pb-16 md:pt-40 md:pb-32">
       <div className="container-shell">
         <Reveal>
           <div className="flex flex-col items-center text-center">
-            <h1 className="font-display text-5xl font-black tracking-tight text-ink md:text-7xl lg:text-8xl">
+            <h1 className="font-display text-4xl font-black tracking-tight text-ink xs:text-5xl md:text-7xl lg:text-8xl">
               Legal <span className="text-gradient">&</span> Policies.
             </h1>
             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-muted md:text-lg">
@@ -41,9 +45,71 @@ function LegalDashboard() {
         </Reveal>
 
         <div className="mt-12 md:mt-16 grid gap-8 lg:grid-cols-12 lg:items-start">
-          {/* Navigation Tabs (Sticky Sidebar on Desktop) */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="flex flex-row overflow-x-auto gap-2 rounded-3xl bg-surface p-2 ring-1 ring-line shadow-sm lg:flex-col lg:overflow-visible lg:gap-3 lg:p-4">
+          {/* Navigation Tabs (Sticky Sidebar on Desktop, Dropdown on Mobile) */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32 relative z-20">
+            {/* Mobile Dropdown Trigger */}
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex w-full items-center justify-between gap-3 rounded-[2rem] bg-surface p-4 ring-1 ring-line shadow-sm hover:cursor-pointer lg:hidden"
+            >
+              <div className="flex items-center gap-3">
+                <ActiveIcon className="text-brand-orange" size={16} strokeWidth={1.8} />
+                <span className="text-xs font-bold uppercase tracking-wider text-ink">
+                  {doc.title}
+                </span>
+              </div>
+              <ChevronDown
+                size={16}
+                className={cn(
+                  "text-muted transition-transform duration-300",
+                  isMenuOpen && "rotate-180"
+                )}
+              />
+            </button>
+
+            {/* Mobile Dropdown List */}
+            <AnimatePresence>
+              {isMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute inset-x-0 top-full mt-2 flex flex-col gap-2 rounded-2xl bg-surface p-2 ring-1 ring-line shadow-xl z-30 lg:hidden"
+                >
+                  {Object.keys(legalDocuments).map((key) => {
+                    const docKey = key as keyof typeof legalDocuments;
+                    const tabItem = legalDocuments[docKey];
+                    const Icon = tabIcons[docKey] || FileText;
+                    const isActive = activeTab === docKey;
+
+                    return (
+                      <button
+                        key={docKey}
+                        type="button"
+                        onClick={() => {
+                          setActiveTab(docKey);
+                          setIsMenuOpen(false);
+                        }}
+                        className={cn(
+                          "flex items-center gap-3 rounded-xl px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300",
+                          isActive
+                            ? "bg-brand-orange text-white shadow-lg shadow-brand-orange/20"
+                            : "text-muted hover:bg-black/5 dark:hover:bg-white/5 hover:text-ink"
+                        )}
+                      >
+                        <Icon size={16} strokeWidth={1.8} />
+                        <span>{tabItem.title}</span>
+                      </button>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Desktop Navigation (Static list) */}
+            <div className="hidden lg:flex lg:flex-col lg:gap-3 rounded-3xl bg-surface p-4 ring-1 ring-line shadow-sm">
               {Object.keys(legalDocuments).map((key) => {
                 const docKey = key as keyof typeof legalDocuments;
                 const tabItem = legalDocuments[docKey];
@@ -56,7 +122,7 @@ function LegalDashboard() {
                     type="button"
                     onClick={() => setActiveTab(docKey)}
                     className={cn(
-                      "flex items-center gap-3 rounded-2xl px-4 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 whitespace-nowrap lg:gap-4 lg:px-5",
+                      "flex items-center gap-4 rounded-2xl px-5 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300",
                       isActive
                         ? "bg-brand-orange text-white shadow-lg shadow-brand-orange/20"
                         : "text-muted hover:bg-black/5 dark:hover:bg-white/5 hover:text-ink"

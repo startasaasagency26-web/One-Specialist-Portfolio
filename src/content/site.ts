@@ -137,7 +137,7 @@ export const outlets = [
     phone: "+60312345678",
     hours: "Daily: 10:00 AM – 10:00 PM",
     mapUrl: "https://maps.google.com/?q=Sunway+Pyramid",
-    image: "",
+    image: "/media/outlets/1-specialist-mobile-counter.jpg",
   },
   {
     id: "remax",
@@ -159,6 +159,6 @@ export const outlets = [
     phone: "+60312345678",
     hours: "Daily: 10:00 AM – 10:00 PM",
     mapUrl: "https://maps.google.com/?q=Sunway+Pyramid",
-    image: "",
+    image: "/media/outlets/ai-store.jpg",
   }
 ];
