@@ -16,7 +16,7 @@ export const heroHighlights = [
 export const services = [
   {
     title: "Fast Repairs",
-    description: "30-minute battery/back glass service and expert board-level repairs.",
+    description: "Expert screen and battery replacements in as fast as 30 minutes, plus advanced board-level repairs.",
     benefit: "Certified technician support",
   },
   {
@@ -28,11 +28,6 @@ export const services = [
     title: "Trade-In & Buy-Back",
     description: "Get instant valuation and the best value for your used devices.",
     benefit: "Instant cash or credit",
-  },
-  {
-    title: "Telco Plans",
-    description: "Tailored postpaid and prepaid solutions for all major providers.",
-    benefit: "Seamless connectivity",
   },
 ];
 
@@ -101,7 +96,7 @@ export const contactDetails = {
   address: "Sunway Pyramid Mall, Selangor, Malaysia",
   whatsapp: "+60123456789",
   phone: "+60312345678",
-  email: "hello@onespecialist.my",
+  email: "support@onespecialist.my",
   hours: "Daily: 10:00 AM – 10:00 PM",
 };
 

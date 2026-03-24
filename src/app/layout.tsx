@@ -30,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "One Specialist Mobile | Trusted Repairs & Devices Since 2007",
   description:
-    "A premium company profile for 1 Mobile Store at Sunway Pyramid Mall, highlighting flagship devices, repairs, trade-ins, telco plans, and long-standing mobile expertise since 2007.",
+    "A premium company profile for 1 Mobile Store at Sunway Pyramid Mall, highlighting flagship devices, repairs, trade-ins, and long-standing mobile expertise since 2007.",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

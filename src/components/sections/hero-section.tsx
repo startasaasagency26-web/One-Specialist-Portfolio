@@ -52,7 +52,7 @@ export function HeroSection() {
             className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-muted md:text-xl"
           >
             Your premium destination for certified repairs, flagship devices, 
-            trade-ins, and high-speed telco plans—all in one place.
+            and trade-ins—all in one place.
           </motion.p>
 
           {/* CTAs */}

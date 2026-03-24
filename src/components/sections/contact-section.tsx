@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   Mail,
   MapPin,
@@ -25,8 +26,8 @@ export function ContactSection() {
                   Let's <span className="text-gradient">Talk</span>.
                 </h2>
                 <p className="mt-8 text-lg font-medium leading-relaxed text-muted">
-                  Whether it's a structural repair, flagship upgrade, or a custom 
-                  telco solution, we're here to help.
+                  Whether it's a precision repair, a device upgrade, or expert 
+                  guidance, we're here to help.
                 </p>
                 
                 <div className="mt-10 md:mt-14 space-y-6 md:space-y-8">
@@ -56,18 +57,9 @@ export function ContactSection() {
                   >
 
                     <MessageSquare size={16} className="text-brand-orange transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
-                    <span>WhatsApp Enquire</span>
+                    <span>WhatsApp Now</span>
                   </a>
 
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="group inline-flex items-center justify-center rounded-full px-8 py-4 bg-surface border border-line shadow-[0_8px_16px_rgba(0,0,0,0.03)] transition-all duration-500 hover:shadow-md hover:-translate-y-0.5 w-full sm:w-auto gap-2.5 text-ink hover:border-brand-orange/30 text-xs font-bold uppercase tracking-widest h-[52px]"
-                  >
-                    <Navigation size={16} className="text-brand-orange transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
-                    <span>Directions</span>
-                  </a>
 
                 </div>
               </div>
@@ -75,11 +67,11 @@ export function ContactSection() {
               <div className="relative aspect-auto md:aspect-square h-auto md:h-full overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line py-16 md:py-0">
                 <div className="absolute inset-0 bg-brand-gradient opacity-5" />
                 <div className="relative flex h-full flex-col items-center justify-center p-8 md:p-12 text-center">
-                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-surface-strong ring-1 ring-line shadow-sm relative">
-                    <div className="absolute inset-[4px] bg-surface rounded-[1.25rem] ring-1 ring-line shadow-sm flex items-center justify-center">
+                  <Link href="/outlets" className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-surface-strong ring-1 ring-line shadow-sm relative hover:scale-105 transition-all cursor-pointer">
+                    <div className="absolute inset-[4px] bg-surface rounded-[1.25rem] ring-1 ring-line shadow-sm flex items-center justify-center hover:bg-surface/90">
                       <MapPin size={24} className="text-brand-orange" strokeWidth={1.5} />
                     </div>
-                  </div>
+                  </Link>
 
 
                   <h3 className="font-display text-3xl font-black text-ink">Sunway Pyramid</h3>
