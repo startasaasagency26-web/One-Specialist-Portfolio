@@ -2,6 +2,7 @@ import { MapPin, MessageSquare, Navigation, Phone, Clock } from "lucide-react";
 import { outlets } from "@/content/site";
 import { Reveal } from "@/components/shared/reveal";
 import Link from "next/link";
+import { toTelHref, toWhatsAppHref } from "@/lib/utils";
 
 export default function OutletsPage() {
   return (
@@ -49,9 +50,15 @@ export default function OutletsPage() {
                       <Clock size={16} className="text-brand-orange/70" />
                       <span>{outlet.hours}</span>
                     </div>
-                    <div className="flex items-center gap-3 text-sm font-medium text-muted">
+                    <div className="relative z-30 flex items-center gap-3 text-sm font-medium text-muted">
                       <Phone size={16} className="text-brand-orange/70" />
-                      <span>{outlet.phone}</span>
+                      <a
+                        href={toTelHref(outlet.phone)}
+                        className="transition hover:text-ink"
+                        aria-label={`Call ${outlet.name} at ${outlet.phone}`}
+                      >
+                        {outlet.phone}
+                      </a>
                     </div>
                   </div>
 
@@ -68,7 +75,7 @@ export default function OutletsPage() {
                     </a>
                     
                     <a
-                      href={`https://wa.me/${outlet.whatsapp.replace(/\+/g, '')}`}
+                      href={toWhatsAppHref(outlet.whatsapp)}
                       target="_blank"
                       rel="noreferrer"
                       className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface-strong border border-line px-6 py-3.5 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:border-brand-orange/30 hover:bg-surface"

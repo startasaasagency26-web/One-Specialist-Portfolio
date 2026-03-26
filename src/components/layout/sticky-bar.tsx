@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Phone, MessageSquare, Send } from "lucide-react";
 import { contactDetails } from "@/content/site";
+import { toTelHref, toWhatsAppHref } from "@/lib/utils";
 
 export function StickyBar() {
   return (
@@ -14,14 +15,14 @@ export function StickyBar() {
         className="flex items-center justify-between gap-3 rounded-full border border-white/10 bg-surface/90 p-2 shadow-2xl backdrop-blur-2xl"
       >
         <a
-          href={`tel:${contactDetails.phone}`}
+          href={toTelHref(contactDetails.phone)}
           className="flex flex-1 items-center justify-center gap-2 rounded-full py-3.5 text-[10px] font-black uppercase tracking-widest text-muted transition hover:bg-white/5 active:scale-95"
         >
           <Phone size={14} />
           Call
         </a>
         <a
-          href={`https://wa.me/${contactDetails.whatsapp.replace(/\+/g, '')}`}
+          href={toWhatsAppHref(contactDetails.whatsapp)}
           className="flex flex-1 items-center justify-center gap-2 rounded-full py-3.5 text-[10px] font-black uppercase tracking-widest text-muted transition hover:bg-white/5 active:scale-95"
         >
           <MessageSquare size={14} />

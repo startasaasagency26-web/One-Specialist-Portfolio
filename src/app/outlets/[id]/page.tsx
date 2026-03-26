@@ -2,7 +2,8 @@ import { outlets } from "@/content/site";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Phone, Clock, Navigation, MessageSquare } from "lucide-react";
+import { ArrowLeft, Phone, Clock, Navigation, MessageSquare } from "lucide-react";
+import { toTelHref, toWhatsAppHref } from "@/lib/utils";
 
 export function generateStaticParams() {
   return outlets.map((outlet) => ({
@@ -85,7 +86,13 @@ export default async function OutletDetailPage({ params }: { params: Promise<{ i
                     </div>
                     <div>
                       <p className="text-[10px] font-black uppercase tracking-widest text-muted">Contact Line</p>
-                      <p className="mt-1 font-display font-bold text-ink">{outlet.phone}</p>
+                      <a
+                        href={toTelHref(outlet.phone)}
+                        className="mt-1 inline-flex font-display font-bold text-ink transition hover:text-brand-orange"
+                        aria-label={`Call ${outlet.name} at ${outlet.phone}`}
+                      >
+                        {outlet.phone}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -102,7 +109,7 @@ export default async function OutletDetailPage({ params }: { params: Promise<{ i
                   </a>
                   
                   <a
-                    href={`https://wa.me/${outlet.whatsapp.replace(/\+/g, '')}`}
+                    href={toWhatsAppHref(outlet.whatsapp)}
                     target="_blank"
                     rel="noreferrer"
                     className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface border border-line px-6 py-4 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:border-brand-orange/30 hover:bg-surface-strong"

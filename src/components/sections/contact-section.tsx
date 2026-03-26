@@ -1,20 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Mail,
-  MapPin,
-  MessageSquare,
-  Phone,
-  Clock,
-  Navigation,
-} from "lucide-react";
+import { Mail, MapPin, MessageSquare, Phone, Clock } from "lucide-react";
 
-import { ButtonLink } from "@/components/shared/button-link";
 import { Reveal } from "@/components/shared/reveal";
 import { contactDetails } from "@/content/site";
+import { toMailtoHref, toTelHref, toWhatsAppHref } from "@/lib/utils";
 
 export function ContactSection() {
+  const contactItems = [
+    {
+      icon: Phone,
+      label: "Official Line",
+      value: contactDetails.phone,
+      href: toTelHref(contactDetails.phone),
+    },
+    {
+      icon: Mail,
+      label: "Email Support",
+      value: contactDetails.email,
+      href: toMailtoHref(contactDetails.email, {
+        subject: "Inquiry from One Specialist website",
+        body: "Hi One Specialist,\n\nI would like to enquire about your services.\n\nThank you.",
+      }),
+    },
+    {
+      icon: Clock,
+      label: "Store Hours",
+      value: contactDetails.hours,
+    },
+  ];
+
   return (
     <section id="contact" className="bg-background py-16 md:py-32">
       <div className="container-shell">
@@ -23,44 +39,47 @@ export function ContactSection() {
             <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 lg:items-center">
               <div>
                 <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-7xl">
-                  Let's <span className="text-gradient">Talk</span>.
+                  Let&apos;s <span className="text-gradient">Talk</span>.
                 </h2>
                 <p className="mt-8 text-lg font-medium leading-relaxed text-muted">
-                  Whether it's a precision repair, a device upgrade, or expert 
-                  guidance, we're here to help.
+                  Whether it&apos;s a precision repair, a device upgrade, or expert
+                  guidance, we&apos;re here to help.
                 </p>
                 
                 <div className="mt-10 md:mt-14 space-y-6 md:space-y-8">
-                  {[
-                    { icon: Phone, label: "Official Line", value: contactDetails.phone },
-                    { icon: Mail, label: "Email Support", value: contactDetails.email },
-                    { icon: Clock, label: "Store Hours", value: contactDetails.hours },
-                  ].map((item, i) => (
+                  {contactItems.map((item, i) => (
                     <div key={i} className="flex items-center gap-6">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/5 text-brand-orange">
                         <item.icon size={24} />
                       </div>
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-widest text-muted">{item.label}</p>
-                        <p className="mt-1 font-display text-xl font-bold text-ink">{item.value}</p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            aria-label={`${item.label}: ${item.value}`}
+                            className="mt-1 inline-flex font-display text-xl font-bold text-ink transition hover:text-brand-orange"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="mt-1 font-display text-xl font-bold text-ink">{item.value}</p>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 w-full">
+                <div className="mt-10 flex justify-center md:mt-14">
                   <a 
-                    href={`https://wa.me/${contactDetails.whatsapp.replace(/\+/g, '')}`}
+                    href={toWhatsAppHref(contactDetails.whatsapp)}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center justify-center rounded-full px-8 h-[52px] bg-brand-orange/5 border border-brand-orange/30 text-ink shadow-[0_8px_16px_rgba(242,75,38,0.03)] transition-all duration-500 hover:shadow-md hover:border-brand-orange/50 hover:-translate-y-0.5 w-full sm:w-auto gap-2.5 text-xs font-bold uppercase tracking-widest"
+                    className="group inline-flex h-[52px] w-full max-w-xs items-center justify-center gap-2.5 rounded-full border border-brand-orange/30 bg-brand-orange/5 px-8 text-xs font-bold uppercase tracking-widest text-ink shadow-[0_8px_16px_rgba(242,75,38,0.03)] transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-orange/50 hover:shadow-md"
                   >
-
                     <MessageSquare size={16} className="text-brand-orange transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
                     <span>WhatsApp Now</span>
                   </a>
-
-
                 </div>
               </div>
 
