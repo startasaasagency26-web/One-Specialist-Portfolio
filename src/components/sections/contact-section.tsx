@@ -32,10 +32,10 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="bg-background py-16 md:py-32">
+    <section id="contact" className="bg-background py-16 sm:py-24 md:py-32">
       <div className="container-shell">
         <Reveal>
-          <div className="overflow-hidden rounded-[3rem] bg-surface p-6 md:p-20 ring-1 ring-line">
+          <div className="overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] bg-surface p-8 sm:p-12 md:p-20 ring-1 ring-line">
             <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 lg:items-center">
               <div>
                 <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-7xl">

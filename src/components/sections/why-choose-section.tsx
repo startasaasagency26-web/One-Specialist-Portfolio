@@ -1,28 +1,41 @@
 "use client";
 
-import { CheckCircle2, Award, Zap, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Award, Zap, ShieldCheck, Smartphone } from "lucide-react";
 import { Reveal } from "@/components/shared/reveal";
 import { whyChooseUs } from "@/content/site";
 
 const icons = [Award, Zap, Smartphone, ShieldCheck];
-import { Smartphone } from "lucide-react";
 
 export function WhyChooseSection() {
   return (
-    <section id="why-us" className="bg-surface py-24 md:py-32">
-      <div className="container-shell">
+    <section id="why-us" className="relative bg-surface py-16 sm:py-24 md:py-32 overflow-hidden">
+      {/* Background Video blended into the surface theme */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover opacity-30 filter blur-[1px] saturate-200 contrast-125"
+        >
+          <source src="/media/logo-animation-tech.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface/60 to-surface" />
+      </div>
+
+      <div className="container-shell relative z-10">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
+            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl lg:text-6xl drop-shadow-sm">
               Why <span className="text-gradient">One Specialist</span>?
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-muted">
+            <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg font-medium text-muted drop-shadow-sm">
               Built on technical excellence and consumer trust since 2007.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-20 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {whyChooseUs.map((item, index) => {
             const Icon = icons[index];
             return (

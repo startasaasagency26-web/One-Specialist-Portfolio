@@ -12,21 +12,21 @@ export function ServicesSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="services" className="bg-background py-24 md:py-32">
+    <section id="services" className="bg-background py-16 sm:py-24 md:py-32">
       <div className="container-shell">
         <Reveal>
-          <div className="text-center mb-20">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-6xl">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl lg:text-6xl">
               Precision Services for Your Mobile Life.
             </h2>
-            <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-muted">
+            <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg font-medium text-muted">
               From flagship device retail to complex board repairs, we provide 
               comprehensive solutions with unmatched technical expertise.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = icons[index];
 

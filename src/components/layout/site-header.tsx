@@ -78,7 +78,7 @@ export function SiteHeader() {
             type="button"
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-black/5 dark:bg-white/5 text-ink transition hover:border-brand-orange/40 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/50 bg-white/40 backdrop-blur-xl shadow-sm text-ink transition-all hover:bg-white/60 hover:border-brand-orange/40 md:hidden"
           >
             {open ? <X size={16} /> : <Menu size={16} />}
           </button>

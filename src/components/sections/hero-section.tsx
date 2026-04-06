@@ -39,7 +39,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-4xl font-display text-5xl font-black tracking-tight text-ink md:text-7xl lg:text-8xl"
+            className="max-w-4xl font-display text-4xl sm:text-5xl font-black tracking-tight text-ink md:text-7xl lg:text-8xl"
           >
             Trusted Mobile Repairs & Devices Since <span className="text-gradient">2007</span>.
           </motion.h1>
@@ -60,12 +60,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12 flex flex-wrap justify-center gap-4"
+            className="mt-12 flex w-full max-w-sm flex-col gap-4 sm:max-w-none sm:flex-row justify-center"
           >
-            <ButtonLink href="/#contact" variant="primary">
+            <ButtonLink href="/#contact" variant="primary" className="w-full sm:w-auto">
               Get a Quote
             </ButtonLink>
-            <ButtonLink href="/outlets" variant="secondary">
+            <ButtonLink href="/outlets" variant="secondary" className="w-full sm:w-auto">
               Visit Our Store
             </ButtonLink>
           </motion.div>
