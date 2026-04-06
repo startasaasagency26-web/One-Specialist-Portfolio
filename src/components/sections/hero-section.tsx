@@ -20,7 +20,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 flex flex-wrap justify-center gap-x-8 gap-y-4 rounded-full border border-line bg-surface/50 px-6 py-3 backdrop-blur-md shadow-sm"
+            className="mb-8 hidden md:flex flex-wrap justify-center gap-x-8 gap-y-4 rounded-full border border-line bg-surface/50 px-6 py-3 backdrop-blur-md shadow-sm"
           >
             {[
               { icon: ShieldCheck, text: "Established 2007" },
@@ -60,12 +60,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12 flex w-full max-w-sm flex-col gap-4 sm:max-w-none sm:flex-row justify-center"
+            className="mt-10 md:mt-12 flex w-full max-w-sm flex-col gap-4 sm:max-w-none sm:flex-row justify-center"
           >
-            <ButtonLink href="/#contact" variant="primary" className="w-full sm:w-auto">
-              Get a Quote
-            </ButtonLink>
-            <ButtonLink href="/outlets" variant="secondary" className="w-full sm:w-auto">
+            <ButtonLink href="/outlets" variant="primary" className="w-full sm:w-auto">
               Visit Our Store
             </ButtonLink>
           </motion.div>

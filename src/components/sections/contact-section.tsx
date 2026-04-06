@@ -36,7 +36,7 @@ export function ContactSection() {
       <div className="container-shell">
         <Reveal>
           <div className="overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] bg-surface p-8 sm:p-12 md:p-20 ring-1 ring-line">
-            <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 lg:items-center">
+            <div className="grid gap-10 md:gap-12 lg:gap-20 lg:grid-cols-2 lg:items-center">
               <div>
                 <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink md:text-7xl">
                   Let&apos;s <span className="text-gradient">Talk</span>.
@@ -83,7 +83,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="relative aspect-auto md:aspect-square h-auto md:h-full overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line py-16 md:py-0">
+              <div className="relative aspect-auto h-80 sm:h-96 md:aspect-square md:h-full overflow-hidden rounded-[2.5rem] bg-background ring-1 ring-line">
                 <div className="absolute inset-0 bg-brand-gradient opacity-5" />
                 <div className="relative flex h-full flex-col items-center justify-center p-8 md:p-12 text-center">
                   <Link href="/outlets" className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-surface-strong ring-1 ring-line shadow-sm relative hover:scale-105 transition-all cursor-pointer">
