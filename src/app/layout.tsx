@@ -3,9 +3,6 @@ import { Inter, Sora, JetBrains_Mono } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import Script from "next/script";
 
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
-import { StickyBar } from "@/components/layout/sticky-bar";
 import { MotionProvider } from "@/components/providers/motion-provider";
 
 import "./globals.css";
@@ -43,10 +40,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className="bg-canvas font-sans text-ink antialiased">
         <MotionProvider>
           <div className="relative min-h-screen">
-            <SiteHeader />
             {children}
-            <SiteFooter />
-            <StickyBar />
           </div>
         </MotionProvider>
         <Script id="meta-pixel" strategy="afterInteractive">
